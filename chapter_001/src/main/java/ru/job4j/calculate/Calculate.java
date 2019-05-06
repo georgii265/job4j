@@ -1,10 +1,3 @@
-/**
-* Package for calculate task.
-*
-* @author Georgii Morgunov (georgii.morgunov@mail.ru)
-* @version $Id$
-* @since 0.1
-*/
 package ru.job4j.calculate;
 
 /**
@@ -17,7 +10,6 @@ public class Calculate {
     /**
      * Метод для тестирования.
      * @param args - args строка для вывода в консоль
-     * @return "Hello World".
     */
     public static void main (String[] args) {
         System.out.println("Hello World");
