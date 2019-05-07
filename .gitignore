@@ -25,10 +25,5 @@ target
 .iml
 *.idea
 
-.idea
-*.iml
-
-target
-
 out
 *.log
