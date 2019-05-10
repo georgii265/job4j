@@ -1,13 +1,11 @@
 <project>
-     <modelVersion>4.0.0</modelVersion>
-   <artifactId>chapter_001</artifactId>
-   <version>2.0</version>
-   <packaging>jar</packaging>
-   <parent>
-       <groupId>ru.job4j</groupId>
-       <artifactId>junior</artifactId>
-       <version>2.0</version>
-    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.job4j</groupId>
+    <artifactId>junior</artifactId>
+    <packaging>pom</packaging>
+    <version>2.0</version>
+    <name>junior</name>
+    <url>http://job4j.ru/</url>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -18,8 +16,7 @@
     <modules>
         <module>chapter_001</module>
     </modules>
-
-        <dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
@@ -33,8 +30,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
-            <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
