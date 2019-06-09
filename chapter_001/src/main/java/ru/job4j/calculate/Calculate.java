@@ -1,20 +1,23 @@
-﻿package ru.job4j.calculate;
+package ru.job4j.calculate;
 
 /**
- * Class Calculate выполнение задания.
- * @author morgunov
- * @since 05.05.2019
+ * Calculate.
+ *
+ * @author Petr Arsentev (parsentev@yandex.ru)
+ * @version $Id$
+ * @since 0.1
  */
 public class Calculate {
     /**
-     * Метод для тестирования.
-     * @param args - args строка для вывода в консоль
+     * Main.
+     * @param args - args.
      */
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         System.out.println("Hello World");
     }
+
     /**
-     ** Method echo.
+     * Method echo.
      * @param name Your name.
      * @return Echo plus your name.
      */
@@ -22,3 +25,4 @@ public class Calculate {
         return "Echo, echo, echo : " + name;
     }
 }
+
