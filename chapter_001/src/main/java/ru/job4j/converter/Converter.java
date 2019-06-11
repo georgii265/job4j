@@ -38,6 +38,6 @@ public class Converter {
      * @return Рубли
      */
     public int dollarToRuble(int value) {
-        return value / 40;
+        return value /40;
     }
 }
