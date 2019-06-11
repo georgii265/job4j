@@ -11,5 +11,27 @@ public class CalculatorTest  {
         double result = calc.add(1D, 1D);
         double expected = 2D;
         assertThat(result, is(expected));
+
+    @Test
+    public void whenAddOnePlusOneThenTwo() {
+        Calculator calc = new Calculator();
+        double result = calc.subtract(1D, 1D);
+        double expected = 2D;
+        assertThat(result, is(expected));
+
+    @Test
+    public void whenAddOnePlusOneThenTwo() {
+        Calculator calc = new Calculator();
+        double result = calc.div(1D, 1D);
+        double expected = 2D;
+        assertThat(result, is(expected));
+
+    @Test
+    public void whenAddOnePlusOneThenTwo() {
+        Calculator calc = new Calculator();
+        double result = calc.multiple(1D, 1D);
+        result = calc.multiple(1D, 1D);
+        double expected = 2D;
+        assertThat(result, is(expected));
     }
 }
