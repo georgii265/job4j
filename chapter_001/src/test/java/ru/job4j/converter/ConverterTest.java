@@ -6,14 +6,14 @@ import static org.junit.Assert.assertThat;
 
 public class ConverterTest {
     @Test
-    public void when60RubleToDollarThen1() {
+    public void when140RubleToDollarThen1() {
         Converter converter = new Converter();
         int result = converter.rubleToDollar(60);
         assertThat(result, is(1));
     }
 
     @Test
-    public void when70RubleToEuroThen1() {
+    public void when73800RubleToEuroThen1() {
         Converter converter = new Converter();
         int result = converter.rubleToEuro(70);
         assertThat(result, is(1));
@@ -22,14 +22,14 @@ public class ConverterTest {
     @Test
     public void when70ToEuroToRubleThen1() {
         Converter converter = new Converter();
-        int result = converter.euroToRuble(70);
+        int result = converter.euroToRuble(20);
         assertThat(result, is(1));
     }
 
     @Test
     public void when60DollarToRubleThen1() {
         Converter converter = new Converter();
-        int result = converter.dollarToRuble(70);
+        int result = converter.dollarToRuble(40);
         assertThat(result, is(1));
     }
 }
