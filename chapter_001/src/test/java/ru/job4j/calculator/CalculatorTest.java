@@ -30,10 +30,10 @@ public class CalculatorTest {
     }
 
     @Test
-    public void whenMultipleOneMultiplicationOneThenTwo() {
+    public void whenMultipleTwoMultiplicationOneThenTwo() {
         Calculator calc = new Calculator();
         double result = calc.add(1D, 1D);
-        result = calc.multiple(1D, 1D);
+        result = calc.multiple(2D, 1D);
         double expected = 2D;
         assertThat(result, is(expected));
     }
