@@ -13,7 +13,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void when73800RubleToEuroThen1054() {  //вот эта кнопка отвечает за запуск чекстайла
+    public void when73800RubleToEuroThen1054() {
         Converter converter = new Converter();
         int result = converter.rubleToEuro(1400);
         assertThat(result, is(20));
