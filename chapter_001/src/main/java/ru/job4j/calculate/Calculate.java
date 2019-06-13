@@ -18,6 +18,14 @@ public class Calculate {
 
     /**
      * Method echo.
+     * @return Echo plus your name.
+     */
+    public String echo() {
+        return echo();
+    }
+
+    /**
+     * Method echo.
      * @param name Your name.
      * @return Echo plus your name.
      */
