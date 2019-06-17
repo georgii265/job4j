@@ -12,7 +12,7 @@ public class Fit {
      */
     public double manWeight(double height) {
         double weight = (height - 100) * 1.15;
-        return 92;
+        return weight;
     }
 
     /**
@@ -22,6 +22,6 @@ public class Fit {
      */
     public double womanWeight(double height) {
         double weight = (height - 110) * 1.15;
-        return 69;
+        return weight;
     }
 }
