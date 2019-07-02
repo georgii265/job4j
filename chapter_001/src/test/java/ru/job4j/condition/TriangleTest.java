@@ -19,5 +19,5 @@ public class TriangleTest {
         double expected = 2D;
         //Проверяем результат и ожидаемое значение.
         assertThat(result, closeTo(expected, 0.1));
-    }
-}
+    } // как я понимаю т.е это (Создаем объект треугольник = Triangle triangle = new Triangle();).И так далее,так или нет?
+} // здесь же необходимо еще добавить два теста,если да то что он должен проверять?

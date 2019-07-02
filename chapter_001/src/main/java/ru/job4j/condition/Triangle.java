@@ -15,7 +15,7 @@ public class Triangle {
      * @return полуперимента.
      */
     public double period(double a, double b, double c) {
-        return (a + b + c) / 2;
+        return (a + b + c) / 2; // здесь я правильно прописал формулу или что то еще нужно добавить?
     }
 
     /**
@@ -29,7 +29,7 @@ public class Triangle {
      * @return
      */
     private boolean exist(double a, double c, double b) {
-        return a + c > b && a + b > c && c + b > a;
+        return a + c > b && a + b > c && c + b > a;// здесь я правильно прописал формулу или что то еще нужно добавить?
     }
 
     /**
@@ -51,7 +51,7 @@ public class Triangle {
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             // написать формулу для расчета площади треугольника.
-            rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));// здесь я правильно прописал формулу или что то еще нужно добавить?
         }
         return rsl;
     }
