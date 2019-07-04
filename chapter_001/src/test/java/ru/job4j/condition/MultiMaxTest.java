@@ -24,7 +24,7 @@ public class MultiMaxTest {
     public void whenThirdMax() {
         MultiMax check = new MultiMax();
         int result = check.max(1, 4, 2);
-        assertThat(result, is(1));
+        assertThat(result, is(2));
         //// тест правильный или нет?
     }
 }
