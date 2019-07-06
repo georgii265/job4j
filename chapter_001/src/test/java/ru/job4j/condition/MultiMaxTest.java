@@ -16,15 +16,13 @@ public class MultiMaxTest {
     public void whenFirstMax() {
         MultiMax check = new MultiMax();
         int result = check.max(1, 4, 2);
-        assertThat(result, is(1));
-        // тест правильный или нет?
+        assertThat(result, is(4));
     }
 
     @Test
     public void whenThirdMax() {
         MultiMax check = new MultiMax();
         int result = check.max(1, 4, 2);
-        assertThat(result, is(2));
-        //// тест правильный или нет?
+        assertThat(result, is(4));
     }
 }
