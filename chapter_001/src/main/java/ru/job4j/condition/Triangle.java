@@ -28,8 +28,8 @@ public class Triangle {
      * @param c Длина от точки b c.
      * @return
      */
-    private boolean exist(double a, double c, double b) {
-        return a + c > b && a + b > c && c + b > a;
+    private boolean exist(double a, double c, double b){
+    return a + c > b && a + b > c && c + b > a;
     }
 
     /**
