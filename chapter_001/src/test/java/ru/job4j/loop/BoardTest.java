@@ -1,3 +1,5 @@
+package ru.job4j.loop;
+
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -27,7 +29,7 @@ public class BoardTest {
         String ln = System.lineSeparator();
         assertThat(rsl, is(
                 String.format("X X X%s X X %sX X X%s X X %s", ln, ln, ln, ln)
-                )
+                )//напишите здесь тест, проверяющий формирование доски 5 на 4.
         );
     }
 }
