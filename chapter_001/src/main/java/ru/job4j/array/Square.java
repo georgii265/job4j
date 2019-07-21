@@ -7,6 +7,7 @@ public class Square {
         for (int i = 0; i < rst.length; i++) {
             rst[i] = (i + 1)* (i + 1);
         }
+
         return rst;
     }
 }
