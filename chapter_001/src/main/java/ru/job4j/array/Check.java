@@ -10,7 +10,6 @@ public class Check {
                     break;
                 }
         }
-
         return result;
     }
 }
