@@ -19,6 +19,7 @@ public class BubbleSort { //Необходимо создать класс Bubbl
                 }
             }
         }
+
         return array;
     }
 }
