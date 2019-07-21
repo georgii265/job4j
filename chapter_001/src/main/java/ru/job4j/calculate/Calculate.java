@@ -3,7 +3,7 @@ package ru.job4j.calculate;
 /**
  * Calculate.
  *
- * @author Petr Arsentev (parsentev@yandex.ru)
+ * @author Georgii Morgunov (georgii.morgunov@mail.ru)
  * @version $Id$
  * @since 0.1
  */
