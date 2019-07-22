@@ -26,6 +26,7 @@ public class ArrayChar {
                 result = false;
                 break;
             }
+
         return result;
     }
 }
