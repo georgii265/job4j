@@ -2,9 +2,10 @@ package ru.job4j.array;
 
 public class MatrixCheck {
     public boolean mono(boolean[][] data) { //В классе MatrixCheck написать метод public boolean mono(boolean[][] data).
+        int last = data.length - 1;
         boolean result = true;//Метод должен проверить, что все элементы по диагоналям равны true или false.
-        for (int i = 0; i < data.length; i++) {
-            if (data[1][1] != data[i][i] || data[0][0] != data[data.length - 1 - i][i]) {
+        for (int index = 1; index <= last; index++) {
+            if (data[0][0] != data[index][index] || data[0][last] != data[index][last - index]) {
                 result = false;
                 break;
             }
