@@ -153,7 +153,6 @@ public class Puzzle extends Application {
     }
 
     private Cell extract(double graphX, double graphY) {
-
         return new Cell((int) graphX / 40, (int) graphY / 40);
     }
 }
