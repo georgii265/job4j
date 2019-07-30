@@ -66,11 +66,11 @@ public class Logic {
         return rst;
     }
 
-    public boolean isWin() {
-        int[][] table = this.convert();
+    public boolean isWin() { //реализовать этот метод.
+        int[][] table = this.convert();//В массе int[][] table содержаться 0 и 1.
         boolean result = false;
         for (int i = 0; i < this.size; i++) {
-            int count1 = 1;
+            int count1 = 1;//нужно проверить что в массиве единицы образуют ряд по вертикали и горизонтали нужно размера.
             int count2 = 1;
             for (int j = 0; j < this.size; j++) {
                 if (table[i][j] == 1) {
