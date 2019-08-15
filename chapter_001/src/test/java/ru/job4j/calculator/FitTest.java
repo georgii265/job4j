@@ -1,6 +1,6 @@
 package ru.job4j.calculator;
 
-import com.sun.deploy.net.proxy.SunAutoProxyHandler;
+
 import org.junit.Test;
 
 import static org.hamcrest.number.IsCloseTo.closeTo;
