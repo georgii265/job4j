@@ -6,9 +6,13 @@ import static org.junit.Assert.assertThat;
 
 
 public class TriangleTest {
+
+    /*
+     * Создадим три поля с типом Point.
+     */
+
     @Test
     public void Point () {
-        //Создадим три поля с типом Point.
         Point first = new Point(0,0);
         Point second = new Point(0,2);
         Point third = new Point (2,0);
