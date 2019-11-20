@@ -19,7 +19,7 @@ public class Point {
     }
 
     public static void main(String[] args) {
-        Point a = new Point(0, 0);//обьявляем новую переменную типа Point с именем "а" и передаем ей параметры (0,0)
+        Point a = new Point(0, 0);
         Point b = new Point(0, 2);
         double dist = a.distance(b);
         System.out.println(dist);
