@@ -42,12 +42,11 @@ public class Triangle {
      */
     public double area() {
         double rsl = -1;
-        double a = first.distance(second);
-        double b = first.distance(third);
-        double c = second.distance(third);
+        double a = first.distance3d(second);
+        double b = first.distance3d(third);
+        double c = second.distance3d(third);
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
-            // написать формулу для расчета площади треугольника.
             rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
         return rsl;

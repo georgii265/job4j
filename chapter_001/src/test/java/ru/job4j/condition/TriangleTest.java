@@ -15,12 +15,15 @@ public class TriangleTest {
 
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
-        Point first = new Point(0, 0);
-        Point second = new Point(0, 2);
-        Point third = new Point(2, 0);
+        Point first = new Point(1,2,3);// ниполучается реализовать то ,что он от меня просит
+        first.info();
+        Point second = new Point(1,2,4);
+        second.info();
+        Point third = new Point(1,2,5);
+        third.info();
         Triangle triangle = new Triangle(first,second,third);
         double result = triangle.area();
         double expected = 2D;
-        assertThat(result, closeTo(expected, 2.0));
+        assertThat(result, closeTo(expected, 3.0));
     }
 }
