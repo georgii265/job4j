@@ -1,9 +1,10 @@
 package ru.job4j.tracker;
 
-/*
+/**
  * Создайте наследников от класса Doctor(Surgeon,Dentist).
  * Добавьте новые поля в наследниках и так же методы.
- *  Это поля и методы, должны отображать особенность класса.
+ * Это поля и методы, должны отображать особенность класса.
+ * Класс доктор.
  */
 public class  Doctor extends Profession{
 
@@ -19,7 +20,7 @@ public class  Doctor extends Profession{
     }
 
     public String getExperience(){
-            return experience;
+        return experience;
     }
     public  int getSalary(){
         return salary;

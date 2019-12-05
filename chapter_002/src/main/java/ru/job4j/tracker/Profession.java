@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 
-/*
+/**
  * Создайте базовый класс Profession - вынесите туда все общие поля (name, surname, education, birthday)
  * и метод (get методы на поля (public String getName()))
  * Создайте классы Engineer, Doctor, унаследовав их от Profession;
@@ -18,23 +18,26 @@ public class Profession {
         this.surname = surname;
         this.education = education;
         this.birthday = birthday;
-        /*
+
+
+        /**
          * И метод (get методы на поля (public String getName()))
+         * Метод возвращает имя.
          */
-        public String getName () {
-            return ;
+        public String getName() {
+            return name;
         }
 
-        public String getSurname () {
-            return ;
+        public String getSurname(){
+            return surname;
         }
 
-        public String getEducation () {
-            return ;
+        public String getEducation(){
+            return education;
         }
 
-        public String getBirthday () {
-            return ;
+        public String getBirthday(){
+            return birthday;
         }
     }
 }
