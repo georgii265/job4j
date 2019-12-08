@@ -1,7 +1,6 @@
 package ru.job4j.inheritance;
 
 public class JSONReport  extends  TextReport {
-
     /**
      * Создайте класс JSONReport.
      * Он должен наследоваться от TextReport.
