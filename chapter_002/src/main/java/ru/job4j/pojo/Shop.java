@@ -11,18 +11,14 @@ public class Shop {
      * Для того, чтобы сместить все элементы влево на одну позицию нужно использовать цикл for + index.
      * products[index] = products[index + 1];
      * 2. Добавьте демонстрацию работы примера в метод main.
+     * Java предоставляет встроенный метод System.arraycopy() для копирования элементов из одного массива в другой.
      */
     public static Product[] delete(Product[] products, int index) {
 
-        /**
-         * Java предоставляет встроенный метод System.arraycopy() для копирования элементов из одного массива в другой.
-         */
         products[index] = null;
         for (int i = index; i < products.length -1; i++) {
              products[i] = products[i + 1];
         }
-        //products[products.length - 1] = null;
-        //return products;
         return Arrays.copyOf(products, products.length - 1);
     }
 
@@ -36,11 +32,11 @@ public class Shop {
         products[2] = new Product("Мороженое", 20);
         products[3] = new Product("Яйцо", 18);
         products[4] = new Product("Гречка", 23);
-        delete(products,2);// вызываем метод удаления.
+        Product[] delete = delete(products,4);// вызываем метод удаления.
         //new Shop().delete(products, 5); можно еще таким способом вызвать.
 
-        for (int i = 0; i < products.length; i++) {
-            Product product = products[i];
+        for (int i = 0; i < delete.length; i++) {
+            Product product = delete[i];
             System.out.println(product.getName());
         }
     }
