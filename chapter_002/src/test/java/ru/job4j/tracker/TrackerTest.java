@@ -21,7 +21,7 @@ public class TrackerTest {
      * Test на метод  findAll - получение списка всех заявок.
      */
     @Test
-    public void whenAddThreeItemsInTrackerThenGetThreeItems(){
+    public void whenFindAllOneItemInTheTrackerThenGetOneItem(){
         Tracker tracker = new Tracker();
         Item[] items = {new Item("test1")};
         for (Item item : items) {
@@ -34,7 +34,7 @@ public class TrackerTest {
      * Test на метод findByName - получение списка по имени .
      */
     @Test
-    public void whenFindByNameItemsThenFindThem  (){
+    public void whenFindByNameOfTheItemThenFindIt(){
         Tracker tracker = new Tracker();
         Item[] items = {new Item("test1")};
         for (Item item : items) {
