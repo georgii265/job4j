@@ -17,6 +17,7 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
+
     /**
      * Test на метод  findAll - получение списка всех заявок.
      */
