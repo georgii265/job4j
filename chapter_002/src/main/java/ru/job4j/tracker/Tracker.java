@@ -45,21 +45,21 @@ public class Tracker {
      */
     public Item[] findAll() {
         return Arrays.copyOf(items,position);
-        }
+    }
 
-        /**
-         * Метод на получение списка по имени - public Item[] findByName(String key)
-         * Метод public Item[] findByName(String key) проверяет в цикле все элементы массива this.items,
-         * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
-         * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
-         * Алгоритм этого метода аналогичен методу findAll.
-         *
-         *  Метод findByName можно реализовать так. Создать массив размера position.
-         * Записать в него элементы которые удолетворяют условию items[i].getName().equals(key).
-         * Записать можно просто result[count++] = items[i];
-         *  count мы считаем чтобы обрезать массив, т.е. оставить его без null элементов по аналогии с пунктом 1,
-         *  а также чтобы записывать значения в массив
-         */
+    /**
+     * Метод на получение списка по имени - public Item[] findByName(String key)
+     * Метод public Item[] findByName(String key) проверяет в цикле все элементы массива this.items,
+     * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
+     * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
+     * Алгоритм этого метода аналогичен методу findAll.
+     *
+     *  Метод findByName можно реализовать так. Создать массив размера position.
+     * Записать в него элементы которые удолетворяют условию items[i].getName().equals(key).
+     * Записать можно просто result[count++] = items[i];
+     *  count мы считаем чтобы обрезать массив, т.е. оставить его без null элементов по аналогии с пунктом 1,
+     *  а также чтобы записывать значения в массив
+     */
     public Item[] findByName(String key){
         //Создаем массив в кол-ве элементов
         //т.к. все элементы могут быть с одиноковыми именем.
@@ -67,7 +67,7 @@ public class Tracker {
         int count = 0;
         for (int i = 0; i < position; i++) {
             if (items[i].getName().equals(key)) {
-               result [count++] = items[i];
+                result [count++] = items[i];
             }
         }
         //Обрезаем массив, оставляя его без null элементов.
@@ -80,17 +80,26 @@ public class Tracker {
      * Помните, что для сравнения строк мы должны использовать метод equals() например:
      * item.getId().equals(tmp.getId()). Сравнивать через == нельзя.
      */
-    public Item findById(String id){
-            Item result = null;
-            for (int i = 0; i < position; i++) {
-                if (id.equals(items[i].getId())) {
-                    result = items[i];
-                    break;
-                }
+    public Item findById(String id) {
+        Item result = null;
+        for (int i = 0; i < position; i++) {
+            if (id.equals(items[i].getId())) {
+                result = items[i];
+                break;
             }
-            return result;
         }
+        return result;
+    }
 
+    /**
+     * Весь метод replace будет состоять из 3 строчек кода.
+     * 1. Найти индекс ячейки по id.
+     * 2. Проставить id с item. При замене нужно сохранять старый id.
+     * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
+     */
+    public void replace(String id, Item item) {
+
+    }
 
     /**
      * Метод генерирует уникальный ключ для заявки.
@@ -102,5 +111,4 @@ public class Tracker {
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
 }
-
 

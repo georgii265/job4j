@@ -57,5 +57,21 @@ public class TrackerTest {
         }
         assertThat(tracker.findById(items[0].getId()), is(items[0]));
     }
+
+    @Test
+    public void whenReplaceNameThenReturnNewName() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        // Добавляем заявку в трекер.В объект проинициализирован id.
+        tracker.add(bug);
+        // Создаем новую заявку "bug".
+        String id = bug.getId();
+        // Передаем значение поля id с помощью метода getId в bug.
+        Item bugWithDesc = new Item("Bug with description");
+        // Здесь мы получается добавляем еще одну заявку.В объект проинициализирован id.
+        tracker.replace(id, bugWithDesc);
+        // Проверяем, что заявка с таким id имеет новое имя "Bug with description".
+        assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
 }
 
