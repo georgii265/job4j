@@ -38,33 +38,45 @@ public class Tracker {
      *  Метод на получение списка всех заявок - public Item[] findAll();
      *  Метод public Item[] findAll() возвращает копию массива this.items без null элементов (без пустых клеток).
      * @return
+     * Метод findAll можно записать в одно строку return Arrays.copyOf(items, position);
+     * Сделать так мы можем, потому что у нас элементы хранятся только до position, с position у нас хранятся только null.
+     * Соответственно, нам достаточно скопировать заполненный кусок массива
      */
     public Item[] findAll() {
-        Item[] namesPosition = new Item[this.position];
-        int position = 0;
-        for (int index = 0; index < this.position; index++) {
-            if (namesPosition != null) {
-                position++;
-            }
-        }
-        namesPosition = Arrays.copyOf(namesPosition, position);
-        for (int index = 0; index < namesPosition.length; index++) {
-            return new Item[0];
+        return Arrays.copyOf(items,position);
         }
 
         /**
-     * Метод на получение списка по имени - public Item[] findByName(String key)
-     * @param key
-     * @return
-     * Метод public Item[] findByName(String key) проверяет в цикле все элементы массива this.items,
-     * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
-     * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
-     * Алгоритм этого метода аналогичен методу findAll.
-     */
+         * Метод на получение списка по имени - public Item[] findByName(String key)
+         * @param key
+         * @return
+         * Метод public Item[] findByName(String key) проверяет в цикле все элементы массива this.items,
+         * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
+         * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
+         * Алгоритм этого метода аналогичен методу findAll.
+         *
+         *  Метод findByName можно реализовать так. Создать массив размера position.
+         * Записать в него элементы которые удолетворяют условию items[i].getName().equals(key).
+         * Записать можно просто result[count++] = items[i];
+         *  count мы считаем чтобы обрезать массив, т.е. оставить его без null элементов по аналогии с пунктом 1,
+         *  а также чтобы записывать значения в массив
+         */
     public Item[] findByName(String key){
-
+        int count = 0;
+        for (int i = 0; i < position; i++) {
+            if (items[i].getName().equals(key)) {
+                count++;
+            }
+        }
+        Item[] result = new Item[count];
+        count = 0;
+        for (int i = 0; i < position; i++) {
+            if (items[i].getName().equals(key)) {
+                result[count++] = items[i];
+            }
+        }
+        return result;
     }
-
     /**
      * Метод на получение заявки по id - public Item findById(String id)
      * @param id
@@ -75,8 +87,16 @@ public class Tracker {
      * item.getId().equals(tmp.getId()). Сравнивать через == нельзя.
      */
     public Item findById(String id){
+            Item result = null;
+            for (int i = 0; i < position; i++) {
+                if (id.equals(items[i].getId())) {
+                    result = items[i];
+                    break;
+                }
+            }
+            return result;
+        }
 
-    }
 
     /**
      * Метод генерирует уникальный ключ для заявки.
