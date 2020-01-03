@@ -3,7 +3,9 @@ package ru.job4j.tracker;
 
 import java.util.Random;
 import java.util.Arrays;
-/** В классе ru.job4j.tracker.Tracker должны быть методы:
+
+/**
+ * В классе ru.job4j.tracker.Tracker должны быть методы:
  * добавление заявок - public Item add(Item item);
  * получение списка всех заявок - public Item[] findAll();
  * получение списка по имени - public Item[] findByName(String key);
@@ -37,10 +39,9 @@ public class Tracker {
     /**
      *  Метод на получение списка всех заявок - public Item[] findAll();
      *  Метод public Item[] findAll() возвращает копию массива this.items без null элементов (без пустых клеток).
-     * @return
-     * Метод findAll можно записать в одно строку return Arrays.copyOf(items, position);
-     * Сделать так мы можем, потому что у нас элементы хранятся только до position, с position у нас хранятся только null.
-     * Соответственно, нам достаточно скопировать заполненный кусок массива
+     *  Метод findAll можно записать в одно строку return Arrays.copyOf(items, position);
+     *  Сделать так мы можем, потому что у нас элементы хранятся только до position, с position у нас хранятся только null.
+     *  Соответственно, нам достаточно скопировать заполненный кусок массива
      */
     public Item[] findAll() {
         return Arrays.copyOf(items,position);
@@ -48,8 +49,6 @@ public class Tracker {
 
         /**
          * Метод на получение списка по имени - public Item[] findByName(String key)
-         * @param key
-         * @return
          * Метод public Item[] findByName(String key) проверяет в цикле все элементы массива this.items,
          * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
          * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
@@ -62,25 +61,20 @@ public class Tracker {
          *  а также чтобы записывать значения в массив
          */
     public Item[] findByName(String key){
+        //Создаем массив в кол-ве элементов
+        //т.к. все элементы могут быть с одиноковыми именем.
+        Item[] result = new Item[position];
         int count = 0;
         for (int i = 0; i < position; i++) {
             if (items[i].getName().equals(key)) {
-                count++;
+               result [count++] = items[i];
             }
         }
-        Item[] result = new Item[count];
-        count = 0;
-        for (int i = 0; i < position; i++) {
-            if (items[i].getName().equals(key)) {
-                result[count++] = items[i];
-            }
-        }
-        return result;
+        //Обрезаем массив, оставляя его без null элементов.
+        return Arrays.copyOf(result,count);
     }
     /**
      * Метод на получение заявки по id - public Item findById(String id)
-     * @param id
-     * @return
      * Метод public Item findById(String id) проверяет в цикле все элементы массива this.items,
      * сравнивая id с аргументом String id и возвращает найденный Item. Если Item не найден - возвращает null.
      * Помните, что для сравнения строк мы должны использовать метод equals() например:
