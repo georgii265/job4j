@@ -1,8 +1,11 @@
 package ru.job4j.tracker;
 
 
+import java.util.List;
 import java.util.Random;
 import java.util.Arrays;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * В классе ru.job4j.tracker.Tracker должны быть методы:
@@ -25,6 +28,7 @@ public class Tracker {
 
     /**
      * Метод добавления заявки в хранилище
+     *
      * @param item новая заявка
      * Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
      * В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
@@ -36,15 +40,16 @@ public class Tracker {
         items[this.position++] = item;
         return item;
     }
+
     /**
-     *  Метод на получение списка всех заявок - public Item[] findAll();
-     *  Метод public Item[] findAll() возвращает копию массива this.items без null элементов (без пустых клеток).
-     *  Метод findAll можно записать в одно строку return Arrays.copyOf(items, position);
-     *  Сделать так мы можем, потому что у нас элементы хранятся только до position, с position у нас хранятся только null.
-     *  Соответственно, нам достаточно скопировать заполненный кусок массива
+     * Метод на получение списка всех заявок - public Item[] findAll();
+     * Метод public Item[] findAll() возвращает копию массива this.items без null элементов (без пустых клеток).
+     * Метод findAll можно записать в одно строку return Arrays.copyOf(items, position);
+     * Сделать так мы можем, потому что у нас элементы хранятся только до position, с position у нас хранятся только null.
+     * Соответственно, нам достаточно скопировать заполненный кусок массива
      */
     public Item[] findAll() {
-        return Arrays.copyOf(items,position);
+        return Arrays.copyOf(items, position);
     }
 
     /**
@@ -53,26 +58,27 @@ public class Tracker {
      * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
      * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
      * Алгоритм этого метода аналогичен методу findAll.
-     *
-     *  Метод findByName можно реализовать так. Создать массив размера position.
+     * <p>
+     * Метод findByName можно реализовать так. Создать массив размера position.
      * Записать в него элементы которые удолетворяют условию items[i].getName().equals(key).
      * Записать можно просто result[count++] = items[i];
-     *  count мы считаем чтобы обрезать массив, т.е. оставить его без null элементов по аналогии с пунктом 1,
-     *  а также чтобы записывать значения в массив
+     * count мы считаем чтобы обрезать массив, т.е. оставить его без null элементов по аналогии с пунктом 1,
+     * а также чтобы записывать значения в массив
      */
-    public Item[] findByName(String key){
+    public Item[] findByName(String key) {
         //Создаем массив в кол-ве элементов
         //т.к. все элементы могут быть с одиноковыми именем.
         Item[] result = new Item[position];
         int count = 0;
         for (int i = 0; i < position; i++) {
             if (items[i].getName().equals(key)) {
-                result [count++] = items[i];
+                result[count++] = items[i];
             }
         }
         //Обрезаем массив, оставляя его без null элементов.
-        return Arrays.copyOf(result,count);
+        return Arrays.copyOf(result, count);
     }
+
     /**
      * Метод на получение заявки по id - public Item findById(String id)
      * Метод public Item findById(String id) проверяет в цикле все элементы массива this.items,
@@ -98,17 +104,18 @@ public class Tracker {
      * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
      */
     public void replace(String id, Item item) {
-
+        item.setId(id);
+        Arrays.asList(id).indexOf("Bug");
+        items[position] = item;
     }
-
-    /**
-     * Метод генерирует уникальный ключ для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
-     * @return Уникальный ключ.
-     */
-    private String generateId() {
-        Random rm = new Random();
-        return String.valueOf(rm.nextLong() + System.currentTimeMillis());
-    }
+        /**
+         * Метод генерирует уникальный ключ для заявки.
+         * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+         * @return Уникальный ключ.
+         */
+        private String generateId () {
+            Random rm = new Random();
+            return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+        }
 }
 
