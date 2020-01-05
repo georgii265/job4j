@@ -1,11 +1,10 @@
 package ru.job4j.tracker;
 
 
-import java.util.List;
+
 import java.util.Random;
 import java.util.Arrays;
 
-import static java.lang.Integer.parseInt;
 
 /**
  * В классе ru.job4j.tracker.Tracker должны быть методы:
