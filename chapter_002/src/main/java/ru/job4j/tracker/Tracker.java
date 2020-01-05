@@ -104,18 +104,29 @@ public class Tracker {
      * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
      */
     public void replace(String id, Item item) {
-        item.setId(id);
-        Arrays.asList(id).indexOf("Bug");
-        items[position] = item;
-    }
-        /**
-         * Метод генерирует уникальный ключ для заявки.
-         * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
-         * @return Уникальный ключ.
-         */
-        private String generateId () {
-            Random rm = new Random();
-            return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+        for (int index = 0; index < position; index++) {
+            //в цикле for обьявляем переменную int index в инициализирующей части цикла for;
+            //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
+            // написал цикл,
+            if (items[index].getId().equals(id)) {
+                // получил  item из ячейки.
+                items[index] = item;
+                //получаем его id(уникальный ключ),тут я пока еще ни разобрался.Как мне его найти.
+                break;
+                //прекращаем цикл for.
+            }
         }
+    }
+
+
+            /**
+             * Метод генерирует уникальный ключ для заявки.
+             * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+             * @return Уникальный ключ.
+             */
+            private String generateId () {
+                Random rm = new Random();
+                return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+            }
 }
 
