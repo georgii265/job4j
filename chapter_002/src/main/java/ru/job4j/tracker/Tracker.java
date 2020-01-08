@@ -1,10 +1,7 @@
 package ru.job4j.tracker;
 
-
-
 import java.util.Random;
 import java.util.Arrays;
-
 
 /**
  * В классе ru.job4j.tracker.Tracker должны быть методы:
@@ -15,6 +12,7 @@ import java.util.Arrays;
  */
 
 public class Tracker {
+
     /**
      * Массив для хранения заявок.
      */
@@ -103,19 +101,16 @@ public class Tracker {
      * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
      */
     public void replace(String id, Item item) {
+        //в цикле for обьявляем переменную int index в инициализирующей части цикла for;
+        //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
         for (int index = 0; index < position; index++) {
-            //в цикле for обьявляем переменную int index в инициализирующей части цикла for;
-            //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
-            // написал цикл,
-                // получил  item из ячейки.
-                items[index] = item;
-                //получаем его id(уникальный ключ),тут я пока еще ни разобрался.Как мне его найти.
+            if (items[index].getId().equals(id)) { //делаем проверку,так как мы  ищем по id.
+                item.setId(id); // устанавливаем id чтоб можно было найти потом.
+                items[index] = item;// получаем item из ячейки.
                 break;
-                //прекращаем цикл for.
             }
         }
-
-
+    }
 
             /**
              * Метод генерирует уникальный ключ для заявки.
