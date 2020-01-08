@@ -27,15 +27,26 @@ public class Tracker {
      * Метод добавления заявки в хранилище
      *
      * @param item новая заявка
-     * Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
-     * В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
-     * Уникальный ключ нужно генерировать на основании времени и произвольного числа - item.setId(this.generateId());
-     * В качестве ключа нельзя использовать индекс от массива.
+     *             Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
+     *             В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
+     *             Уникальный ключ нужно генерировать на основании времени и произвольного числа - item.setId(this.generateId());
+     *             В качестве ключа нельзя использовать индекс от массива.
      */
     public Item add(Item item) {
         item.setId(this.generateId());
         items[this.position++] = item;
         return item;
+    }
+
+    /**
+     * Метод генерирует уникальный ключ для заявки.
+     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     *
+     * @return Уникальный ключ.
+     */
+    private String generateId() {
+        Random rm = new Random();
+        return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
 
     /**
@@ -93,33 +104,54 @@ public class Tracker {
         }
         return result;
     }
-
     /**
      * Весь метод replace будет состоять из 3 строчек кода.
      * 1. Найти индекс ячейки по id.
      * 2. Проставить id с item. При замене нужно сохранять старый id.
      * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
+     * @return
      */
     public void replace(String id, Item item) {
         //в цикле for обьявляем переменную int index в инициализирующей части цикла for;
         //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
-        for (int index = 0; index < position; index++) {
+        int index = indexOf(id);
+       // for (int index = 0; index < position; index++) {
             if (items[index].getId().equals(id)) { //делаем проверку,так как мы  ищем по id.
                 item.setId(id); // устанавливаем id чтоб можно было найти потом.
                 items[index] = item;// получаем item из ячейки.
+            }
+            return;
+        }
+
+    /**
+     * Метод удаления заявки.
+     *
+     */
+    public void delete (String id){
+        int index = indexOf(id) +1;//Массив куда мы копируем, тот же items.
+         if(index != -1);//Проверяет, равны или нет значения двух операндов,
+        // если значения не равны, то условие становится истинным.
+          System.arraycopy(items,index +1,items,index,index - index);//метод, который позволяет скопировать блоки массива целиком.
+         // Мы имеем индекс и position. Скопировать нам нужно все элементы от индекс до position.
+           items[position] = null;//Так же в конце нам нужно обнулить последнюю ячейку,
+           // так как она будет заполнена последним элементов, а мы элементы сдвинули.
+           position--;//И самое последнее, нам нужно уменьшить указатель position.
+        }
+
+    /**
+     * Метод возвращает index по id.
+     * Метод indexOf объявлен как private, потому что он используется только внутри системы.
+     */
+    private int indexOf(String id) {
+        int rsl = -1;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl = index;
                 break;
             }
         }
+        return rsl;
     }
-
-            /**
-             * Метод генерирует уникальный ключ для заявки.
-             * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
-             * @return Уникальный ключ.
-             */
-            private String generateId () {
-                Random rm = new Random();
-                return String.valueOf(rm.nextLong() + System.currentTimeMillis());
-            }
 }
+
 
