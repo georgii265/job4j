@@ -15,6 +15,9 @@ public class Tracker {
 
     /**
      * Массив для хранения заявок.
+     * Одновременно объявляем переменную и определяем массив.
+     * Если массив создаётся таким образом, то всем элементам массива автоматически присваиваются значения по умолчанию.
+     * Например, для числовых значений начальное значение будет 0.
      */
     private final Item[] items = new Item[100];
 
@@ -27,10 +30,10 @@ public class Tracker {
      * Метод добавления заявки в хранилище
      *
      * @param item новая заявка
-     *             Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
-     *             В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
-     *             Уникальный ключ нужно генерировать на основании времени и произвольного числа - item.setId(this.generateId());
-     *             В качестве ключа нельзя использовать индекс от массива.
+     * Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
+     * В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
+     * Уникальный ключ нужно генерировать на основании времени и произвольного числа - item.setId(this.generateId());
+     * В качестве ключа нельзя использовать индекс от массива.
      */
     public Item add(Item item) {
         item.setId(this.generateId());
@@ -94,16 +97,25 @@ public class Tracker {
      * Помните, что для сравнения строк мы должны использовать метод equals() например:
      * item.getId().equals(tmp.getId()). Сравнивать через == нельзя.
      */
+   // public Item findById(String id) {
+       // Item result = null;
+        //for (int i = 0; i < position; i++) {
+            //if (id.equals(items[i].getId())) {
+                //result = items[i];
+               // break;
+            //}
+       // }
+        //return result;
+   // }
+
     public Item findById(String id) {
-        Item result = null;
-        for (int i = 0; i < position; i++) {
-            if (id.equals(items[i].getId())) {
-                result = items[i];
-                break;
-            }
+        int index = indexOf(id);
+        if(index != -1){
+            return items[index];
         }
-        return result;
+        return null;
     }
+
     /**
      * Весь метод replace будет состоять из 3 строчек кода.
      * 1. Найти индекс ячейки по id.
@@ -131,12 +143,14 @@ public class Tracker {
         int index = indexOf(id) +1;//Массив куда мы копируем, тот же items.
          if(index != -1);//Проверяет, равны или нет значения двух операндов,
         // если значения не равны, то условие становится истинным.
-          System.arraycopy(items,index +1,items,index,index - index);//метод, который позволяет скопировать блоки массива целиком.
+          System.arraycopy(items,index +1,items,index,position);//метод, который позволяет скопировать блоки массива целиком.111
          // Мы имеем индекс и position. Скопировать нам нужно все элементы от индекс до position.
            items[position] = null;//Так же в конце нам нужно обнулить последнюю ячейку,
            // так как она будет заполнена последним элементов, а мы элементы сдвинули.
            position--;//И самое последнее, нам нужно уменьшить указатель position.
-        }
+    }
+
+
 
     /**
      * Метод возвращает index по id.
@@ -153,5 +167,6 @@ public class Tracker {
         return rsl;
     }
 }
+
 
 
