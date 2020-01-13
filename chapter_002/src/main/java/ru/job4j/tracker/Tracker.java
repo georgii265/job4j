@@ -108,10 +108,6 @@ public class Tracker { //шаблон для обьекта
         return Arrays.copyOf(result, count);
     }
 
-    //Я ПОКА ОСТАНОВИЛСЯ ЗДЕСЬ.ПРОВЕРЬТЕ ПОЖАЛУЙСТА МОЕ ОПИСАНИЕ К КОДУ.ВЕРНЫ ЛИ МОИ СУЖДЕНИЯ,ЕСЛИ ГДЕ ТО НИ ПРАВИЛЬНО
-    //ПОДЧЕРКНИТЕ Я ПЕРЕРАБОТАЮ.
-    //ДЛЯ ЧЕТКОСТИ ВСЕЙ ЯСНОСТИ И ПОНИМАНИЯ Я РЕШИЛ ПРОЙТИСЬ ПО ЗАДАНИЮ ЗАНОВО.
-
     /**
      * Метод на получение заявки по id - public Item findById(String id)
      * Метод public Item findById(String id) проверяет в цикле все элементы массива this.items,
@@ -119,20 +115,9 @@ public class Tracker { //шаблон для обьекта
      * Помните, что для сравнения строк мы должны использовать метод equals() например:
      * item.getId().equals(tmp.getId()). Сравнивать через == нельзя.
      */
-   // public Item findById(String id) {
-       // Item result = null;
-        //for (int i = 0; i < position; i++) {
-            //if (id.equals(items[i].getId())) {
-                //result = items[i];
-               // break;
-            //}
-       // }
-        //return result;
-   // }
-
     public Item findById(String id) {
         int index = indexOf(id);
-        if(index != position){
+        if(index != -1){
             return items[index];
         }
         return null;
@@ -150,7 +135,7 @@ public class Tracker { //шаблон для обьекта
         //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
         int index = indexOf(id);
        // for (int index = 0; index < position; index++) {
-            if (index != position ) { //делаем проверку,так как мы  ищем по id.
+            if (index != -1 ) { //делаем проверку,так как мы  ищем по id.
                 item.setId(id); // устанавливаем id чтоб можно было найти потом.
                 items[index] = item;// получаем item из ячейки.
             }
@@ -165,7 +150,8 @@ public class Tracker { //шаблон для обьекта
         int index = indexOf(id) +1;//Массив куда мы копируем, тот же items.
          if(index != position);//Проверяет, равны или нет значения двух операндов,
         // если значения не равны, то условие становится истинным.
-          System.arraycopy(items,index +1,items,index,position);//метод, который позволяет скопировать блоки массива целиком.111
+          System.arraycopy(items,index +1,items,index, items.length - index -1);//метод, который позволяет скопировать блоки массива целиком.
+        // Остаток массива копируем, т.е. правую часть относительно индекса.
          // Мы имеем индекс и position. Скопировать нам нужно все элементы от индекс до position.
            items[position] = null;//Так же в конце нам нужно обнулить последнюю ячейку,
            // так как она будет заполнена последним элементов, а мы элементы сдвинули.
