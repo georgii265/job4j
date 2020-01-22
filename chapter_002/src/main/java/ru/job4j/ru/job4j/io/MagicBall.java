@@ -19,7 +19,7 @@ public class MagicBall {
         Scanner input = new Scanner(System.in);
         System.out.print("Я великий Оракул. Что ты хочешь узнать? ");
         String question = input.nextLine();//Это вопрос - "Будет ли завтра дождь?"
-        int answer = new Random().nextInt(3) -1;//класс Random сгенерируйет число от 0 до 3.
+        int answer = new Random().nextInt(3);//класс Random сгенерируйет число от 0 до 3.
         if (answer == 0) {
             System.out.print("Да");
         } else if (answer == -1) {
