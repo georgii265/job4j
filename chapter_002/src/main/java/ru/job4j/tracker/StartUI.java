@@ -12,7 +12,7 @@ public class StartUI {
             int select = Integer.valueOf(scanner.nextLine());
             if (select == 0) {
                 System.out.println("=== Create a new Item ===");//Создать новый предмет.
-                System.out.println("Enter name: ");//Введите имя.
+                System.out.print("Enter name: ");//Введите имя.
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);//Метод добавления заявки в хранилище.
