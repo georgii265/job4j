@@ -130,7 +130,7 @@ public class Tracker { //шаблон для обьекта
      * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
      * @return
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         //в цикле for обьявляем переменную int index в инициализирующей части цикла for;
         //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
         int index = indexOf(id);
@@ -139,14 +139,16 @@ public class Tracker { //шаблон для обьекта
                 item.setId(id); // устанавливаем id чтоб можно было найти потом.
                 items[index] = item;// получаем item из ячейки.
             }
-            return;
+        return false;
         }
+
 
     /**
      * Метод удаления заявки.
      *
+     * @return
      */
-    public void delete (String id){
+    public boolean delete (String id){
         int index = indexOf(id) +1;//Массив куда мы копируем, тот же items.
          if(index != position);//Проверяет, равны или нет значения двух операндов,
         // если значения не равны, то условие становится истинным.
@@ -156,6 +158,7 @@ public class Tracker { //шаблон для обьекта
            items[position] = null;//Так же в конце нам нужно обнулить последнюю ячейку,
            // так как она будет заполнена последним элементов, а мы элементы сдвинули.
            position--;//И самое последнее, нам нужно уменьшить указатель position.
+        return false;
     }
 
 
