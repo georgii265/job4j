@@ -25,12 +25,10 @@ import java.util.Scanner;
                 System.out.println("=== New item ===");//новый предмет.
                 System.out.println("name: " + item.getName() + "id: " + item.getId());
             } else if (select == 1) {
-                System.out.println("--- All items ---");//Все детали.
-                //вызываем метод findAll из класса Tracker для вызова заявки.
-                tracker.findAll();
-                System.out.println("=== All items ===");
+                System.out.println("=== All items ===");//Все детали.
                 //цикл for each (тип Item и название массива item :название масссива =
                 // = т.е. здесь у нас находиться скопированный кусок массива(return Arrays.copyOf(items, position))/коллекции)
+                //вызываем метод findAll из класса Tracker для вызова заявки.
                 for (Item item : tracker.findAll()) {
                     System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 }
