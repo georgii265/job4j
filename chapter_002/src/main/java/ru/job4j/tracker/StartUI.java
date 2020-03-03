@@ -43,7 +43,6 @@ import java.util.Scanner;
                 String id = scanner.nextLine();
                 Item item = new Item(name);
                 //вызываем метод replace из класса Tracker в котором делаем замену индефикатора и элемента.
-                tracker.replace(id, item);
                 if (tracker.replace(id, item)) {
                     System.out.println("[OK] Task changed");//Задача изменена.
                     System.out.println("Name: " + item.getName() + " id: " + item.getId());
@@ -56,7 +55,6 @@ import java.util.Scanner;
                 System.out.println("=== Delete item ===");
                 System.out.print("Enter item id: ");
                 String id = scanner.nextLine();
-                tracker.delete(id);
                 if (tracker.delete(id)) {
                     System.out.println("[OK] Task deleted");
                 } else {
@@ -71,7 +69,6 @@ import java.util.Scanner;
                 //происходит считывание  строки индификатора начиная от ранее введенного индификатора.
                 String id = scanner.nextLine();
                 //вызываем метод findById из класса Tracker в котором получаем предмет по индификатору.
-                tracker.findById(id);
                 //переменной item с помощью метода передаем параметры индефикатора.
                 Item item = tracker.findById(id);
                 //если item неравен null то...
@@ -85,7 +82,6 @@ import java.util.Scanner;
                 System.out.println("=== Find item by name ===");
                 System.out.print("Enter item name: ");
                 String name = scanner.nextLine();
-                tracker.findByName(name);
                 for (Item item : tracker.findByName(name)) {
                     System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 }
