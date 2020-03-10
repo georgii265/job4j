@@ -23,7 +23,7 @@ import java.util.Scanner;
                 //вызываем из класса Tracker метод add с параметрами item и добавляем новый предмет(item).
                 tracker.add(item);
                 System.out.println("=== New item ===");//новый предмет.
-                System.out.println("name: " + item.getName() + "id: " + item.getId());
+                System.out.println("name: " + item.getName() + " id: " + item.getId());
             } else if (select == 1) {
                 System.out.println("=== All items ===");//Все детали.
                 //цикл for each (тип Item и название массива item :название масссива =
@@ -73,7 +73,7 @@ import java.util.Scanner;
                 Item item = tracker.findById(id);
                 //если item неравен null то...
                 if (item != null) {
-                    System.out.println("name: " + item.getName() + "id: " + item.getId());
+                    System.out.println("name: " + item.getName() + " id: " + item.getId());
                 } else {//если равно null то...
                     System.out.println("Task not found");
                 }

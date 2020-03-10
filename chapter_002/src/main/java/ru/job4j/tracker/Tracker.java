@@ -131,6 +131,7 @@ public class Tracker { //шаблон для обьекта
      * @return
      */
     public boolean replace(String id, Item item) {
+        boolean result = false;
         //в цикле for обьявляем переменную int index в инициализирующей части цикла for;
         //затем у нас вычисляется логическое выражение,т.е. сравнение с переменной типа int index,
         int index = indexOf(id);
@@ -138,8 +139,9 @@ public class Tracker { //шаблон для обьекта
             if (index != -1 ) { //делаем проверку,так как мы  ищем по id.
                 item.setId(id); // устанавливаем id чтоб можно было найти потом.
                 items[index] = item;// получаем item из ячейки.
+                result = true;
             }
-        return false;
+        return result;
         }
 
 
