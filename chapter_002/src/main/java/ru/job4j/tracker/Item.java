@@ -8,8 +8,24 @@ package ru.job4j.tracker;
  */
 
 public class Item {
+
     private String id;
     private String name;
+
+    /**
+     * Это нужно делать в классе Item. Средставми Idea можно сделать автоматически.
+     * Сочетание клавиш alt+insert - и там выбираете toString(). Выбираете нужные поля и нажимаете ОК.
+     * Дальше можно просто писать System.out.println(item),
+     * и оно корректно будет выводить (автоматически будет вызывать toString).
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
     public Item(String name) {
         this.name = name;

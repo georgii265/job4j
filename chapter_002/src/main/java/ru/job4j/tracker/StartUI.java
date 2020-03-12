@@ -23,14 +23,16 @@ import java.util.Scanner;
                 //вызываем из класса Tracker метод add с параметрами item и добавляем новый предмет(item).
                 tracker.add(item);
                 System.out.println("=== New item ===");//новый предмет.
-                System.out.println("name: " + item.getName() + " id: " + item.getId());
+                System.out.println(item);
+                //System.out.println("name: " + item.getName() + " id: " + item.getId());
             } else if (select == 1) {
                 System.out.println("=== All items ===");//Все детали.
                 //цикл for each (тип Item и название массива item :название масссива =
                 // = т.е. здесь у нас находиться скопированный кусок массива(return Arrays.copyOf(items, position))/коллекции)
                 //вызываем метод findAll из класса Tracker для вызова заявки.
                 for (Item item : tracker.findAll()) {
-                    System.out.println("Name: " + item.getName() + " id: " + item.getId());
+                    System.out.println(item);
+                    //System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 }
             } else if (select == 2) {
                 System.out.println("--- Edit item ---");//Изменить элемент.
@@ -45,7 +47,8 @@ import java.util.Scanner;
                 //вызываем метод replace из класса Tracker в котором делаем замену индефикатора и элемента.
                 if (tracker.replace(id, item)) {
                     System.out.println("[OK] Task changed");//Задача изменена.
-                    System.out.println("Name: " + item.getName() + " id: " + item.getId());
+                    System.out.println(item);
+                   // System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 } else {//если мы в водим неправильное имея или индефикатор то выполняется это условие.
                     System.out.println("[Error] Task not found");//Задача не найдена.
                 }
@@ -73,7 +76,8 @@ import java.util.Scanner;
                 Item item = tracker.findById(id);
                 //если item неравен null то...
                 if (item != null) {
-                    System.out.println("name: " + item.getName() + " id: " + item.getId());
+                    System.out.println(item);
+                    //System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 } else {//если равно null то...
                     System.out.println("Task not found");
                 }
@@ -83,7 +87,8 @@ import java.util.Scanner;
                 System.out.print("Enter item name: ");
                 String name = scanner.nextLine();
                 for (Item item : tracker.findByName(name)) {
-                    System.out.println("Name: " + item.getName() + " id: " + item.getId());
+                    System.out.println(item);
+                    //System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 }
             } else if (select == 6) {
                 System.out.println("--- Exit program ---");
