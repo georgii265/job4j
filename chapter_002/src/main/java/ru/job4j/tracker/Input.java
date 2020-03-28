@@ -15,8 +15,7 @@ public interface Input {
     String askStr(String question);
 
     /**
-     *  метод, который будет возвращать от пользователя число, а не строку.
-     *
+     * метод, который будет возвращать от пользователя число, а не строку.
      */
     int askInt(String question);
 }

@@ -1,5 +1,7 @@
 package ru.job4j.pojo;
+
 import java.util.Date;
+
 /**
  * Создайте модель данных - Студент. ru.job4j.pojo.Student.
  * В модели должны быть поля: ФИО, группа, дата поступления.

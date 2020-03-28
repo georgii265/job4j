@@ -21,25 +21,25 @@ public class Profession {
     }
 
     public Profession() {
-        }
-
-        /**
-         * И метод (get методы на поля (public String getName()))
-         * Метод возвращает имя.
-         */
-        public String getName() {
-            return name;
-        }
-
-        public String getSurname(){
-            return surname;
-        }
-
-        public String getEducation(){
-            return education;
-        }
-
-        public String getBirthday(){
-            return birthday;
-        }
     }
+
+    /**
+     * И метод (get методы на поля (public String getName()))
+     * Метод возвращает имя.
+     */
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+}

@@ -7,9 +7,12 @@ package ru.job4j.profession;
  */
 public class Dentist extends Doctor {
 
-    private int numberDentist;// Номер дантиста
-    private String degree;// Ученая степень
-    private String workingHours;// Рабочее время
+    private int numberDentist;
+    // Номер дантиста
+    private String degree;
+    // Ученая степень
+    private String workingHours;
+    // Рабочее время
 
     public Dentist(String name, String surname, String education,
                    String birthday, int numberDentist, String degree, String workingHours) {

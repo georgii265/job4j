@@ -1,9 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
 
@@ -23,7 +24,7 @@ public class TrackerTest {
      * Test на метод  findAll - получение списка всех заявок.
      */
     @Test
-    public void whenFindAllOneItemInTheTrackerThenGetOneItem(){
+    public void whenFindAllOneItemInTheTrackerThenGetOneItem() {
         Tracker tracker = new Tracker();
         Item[] items = {new Item("test1")};
         for (Item item : items) {
@@ -36,7 +37,7 @@ public class TrackerTest {
      * Test на метод findByName - получение списка по имени .
      */
     @Test
-    public void whenFindByNameOfTheItemThenFindIt(){
+    public void whenFindByNameOfTheItemThenFindIt() {
         Tracker tracker = new Tracker();
         Item[] items = {new Item("test1")};
         for (Item item : items) {
@@ -50,9 +51,9 @@ public class TrackerTest {
      * Test на метод  findById - получение заявки по id.
      */
     @Test
-    public void whenFindByIdItemThenFindHim(){
+    public void whenFindByIdItemThenFindHim() {
         Tracker tracker = new Tracker();
-        Item[] items = { new Item("test1")};
+        Item[] items = {new Item("test1")};
         for (Item item : items) {
             tracker.add(item);
         }

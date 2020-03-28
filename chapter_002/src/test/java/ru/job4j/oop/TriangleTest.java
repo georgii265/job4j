@@ -1,6 +1,7 @@
 package ru.job4j.oop;
 
 import org.junit.Test;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -12,10 +13,10 @@ public class TriangleTest {
      */
 
     @Test
-    public void Point () {
-        Point first = new Point(0,0);
-        Point second = new Point(0,2);
-        Point third = new Point (2,0);
+    public void point() {
+        Point first = new Point(0, 0);
+        Point second = new Point(0, 2);
+        Point third = new Point(2, 0);
         double result = first.distance(second);
         first.info();
         second.info();
@@ -33,11 +34,11 @@ public class TriangleTest {
 
     @Test
     public void area() {
-        Point first = new Point(0,0);
+        Point first = new Point(0, 0);
         first.info();
-        Point second = new Point(0,2);
+        Point second = new Point(0, 2);
         second.info();
-        Point third = new Point (2,0);
+        Point third = new Point(2, 0);
         third.info();
     }
 }

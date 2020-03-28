@@ -16,8 +16,8 @@ public class Shop {
     public static Product[] delete(Product[] products, int index) {
 
         products[index] = null;
-        for (int i = index; i < products.length -1; i++) {
-             products[i] = products[i + 1];
+        for (int i = index; i < products.length - 1; i++) {
+            products[i] = products[i + 1];
         }
         return Arrays.copyOf(products, products.length - 1);
     }
@@ -25,14 +25,16 @@ public class Shop {
 
     public static void main(String[] args) {
 
-        Product products[] = new Product[5];//создание массива.
+        Product[] products = new Product[5];
+        //создание массива.
 
         products[0] = new Product("Молоко", 10);
         products[1] = new Product("Лимонад", 15);
         products[2] = new Product("Мороженое", 20);
         products[3] = new Product("Яйцо", 18);
         products[4] = new Product("Гречка", 23);
-        Product[] delete = delete(products,4);// вызываем метод удаления.
+        Product[] delete = delete(products, 4);
+        // вызываем метод удаления.
         //new Shop().delete(products, 5); можно еще таким способом вызвать.
 
         for (int i = 0; i < delete.length; i++) {

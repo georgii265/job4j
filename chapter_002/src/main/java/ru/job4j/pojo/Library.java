@@ -7,17 +7,17 @@ package ru.job4j.pojo;
  */
 public class Library {
     public static void main(String[] args) {
-        Book Head_First_Java = new Book("Head First Java", 257);
-        Book HTML = new Book("HTML", 159);
-        Book CSS = new Book("CSS", 320);
-        Book Clean_code = new Book("Clean code", 264);
+        Book headFirstJava = new Book("Head First Java", 257);
+        Book html = new Book("HTML", 159);
+        Book css = new Book("CSS", 320);
+        Book cleanCode = new Book("Clean code", 264);
 
         Book[] books = new Book[4];
 
-        books[0] = Head_First_Java;
-        books[1] = HTML;
-        books[2] = CSS;
-        books[3] = Clean_code;
+        books[0] = headFirstJava;
+        books[1] = html;
+        books[2] = css;
+        books[3] = cleanCode;
 
         /**
          * Выведите содержимое массива на консоль через цикл for + index.
@@ -30,12 +30,12 @@ public class Library {
          * Переставьте книгу с индексом 0 и 3. Выведите содержимое массива на консоль.
          */
         System.out.println("Replace Head First Java to Clean code : ");
-        Book clean_code = new Book("Clean code", 264);
-        books[0] = clean_code;
+        Book cleanCode1 = new Book("Clean code", 264);
+        books[0] = cleanCode1;
 
 
-        Book head_first_java = new Book("Head First Java",  257);
-        books[3] = head_first_java;
+        Book headFirstJava1 = new Book("Head First Java",  257);
+        books[3] = headFirstJava1;
 
         for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
@@ -46,8 +46,8 @@ public class Library {
          * Добавьте цикл с выводом книги с именем "Clean code".
          */
 
-        System.out.println("Добавил цикл с выводом книги с именем : " + System.lineSeparator() +
-                "Clean code" + " - " + "page: 264");
+        System.out.println("Добавил цикл с выводом книги с именем : " + System.lineSeparator()
+               + "Clean code" + " - " + "page: 264");
         for (int index = 4; index < books.length; index++) {
             Book bk = books[index];
             if (bk.getCount() > 4) {

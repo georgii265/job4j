@@ -7,8 +7,8 @@ import java.util.Scanner;
  * import java.util.Scanner;
  * Сделаем программу которая просит ввести имя и поприветствует нас.
  * Greeting - приветствие.
- *  input - вход.
- *  nextLine - следующая строка.
+ * input - вход.
+ * nextLine - следующая строка.
  */
 public class Greeting {
     public static void main(String[] args) {

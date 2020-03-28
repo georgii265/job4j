@@ -3,60 +3,61 @@ package ru.job4j.tracker;
 
 import java.util.Scanner;
 
- public class StartUI {
-
+public class StartUI {
+    /**
+     * обьявляем переменную run =  для хранения(true или false).
+     * выполняем цикл пока run = true.
+     * вызываем метод ShoMenu().
+     * Дальше пользователю нужно ввести пункт меню от 0 до 6.
+     * обьявляем строковую переменную типа name,
+     * происходит считывание  строки начиная от ранее введенного числа.
+     * обьявляем переменную типа Item с именем item и передаем ей параметры name.
+     * вызываем из класса Tracker метод add с параметрами item и добавляем новый предмет(item).
+     * цикл for each (тип Item и название массива item :название масссива =
+     * = т.е. здесь у нас находиться скопированный кусок массива(return Arrays.copyOf(items, position))/коллекции)
+     * вызываем метод findAll из класса Tracker для вызова заявки.
+     * вызываем метод replace из класса Tracker в котором делаем замену индефикатора и элемента.
+     * @param scanner
+     * @param tracker
+     */
     public void init(Scanner scanner, Tracker tracker) {
-        boolean run = true;//обьявляем переменную run =  для хранения(true или false).
-        while (run) {//выполняем цикл пока run = true.
-            this.showMenu();//вызываем метод ShoMenu().
-            System.out.print("Select: ");//Выбрать.
-            //Дальше пользователю нужно ввести пункт меню от 0 до 6.
+        boolean run = true;
+        while (run) {
+            this.showMenu();
+            System.out.print("Select:");
             int select = Integer.valueOf(scanner.nextLine());
             if (select == 0) {
-                System.out.println("=== Create a new Item ===");//Создать новый предмет
-                System.out.print("Enter name: ");//Введите имя
-                //обьявляем строковую переменную типа name,
-                //происходит считывание  строки начиная от ранее введенного числа.
+                System.out.println("=== Create a new Item ===");
+                System.out.print("Enter name:");
                 String name = scanner.nextLine();
-                //обьявляем переменную типа Item с именем item и передаем ей параметры name.
                 Item item = new Item(name);
-                //вызываем из класса Tracker метод add с параметрами item и добавляем новый предмет(item).
                 tracker.add(item);
-                System.out.println("=== New item ===");//новый предмет.
+                System.out.println("=== New item ===");
                 System.out.println(item);
-                //System.out.println("name: " + item.getName() + " id: " + item.getId());
             } else if (select == 1) {
-                System.out.println("=== All items ===");//Все детали.
-                //цикл for each (тип Item и название массива item :название масссива =
-                // = т.е. здесь у нас находиться скопированный кусок массива(return Arrays.copyOf(items, position))/коллекции)
-                //вызываем метод findAll из класса Tracker для вызова заявки.
+                System.out.println("=== All items ===");
                 for (Item item : tracker.findAll()) {
                     System.out.println(item);
-                    //System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 }
             } else if (select == 2) {
-                System.out.println("--- Edit item ---");//Изменить элемент.
+                System.out.println("--- Edit item ---");
                 System.out.print("Enter name: ");
                 System.out.println("=== Edit item ===");
-                System.out.print("Enter new name: ");//Введите новое имя.
+                System.out.print("Enter new name: ");
                 String name = scanner.nextLine();
                 System.out.print("Enter Id: ");
-                System.out.print("Enter old id: ");//Введите старый идентификатор.
+                System.out.print("Enter new id: ");
                 String id = scanner.nextLine();
                 Item item = new Item(name);
-                //вызываем метод replace из класса Tracker в котором делаем замену индефикатора и элемента.
                 if (tracker.replace(id, item)) {
-                    System.out.println("[OK] Task changed");//Задача изменена.
+                    System.out.println("[OK] Task changed");
                     System.out.println(item);
-                   // System.out.println("Name: " + item.getName() + " id: " + item.getId());
-                } else {//если мы в водим неправильное имея или индефикатор то выполняется это условие.
-                    System.out.println("[Error] Task not found");//Задача не найдена.
+                } else {
+                    System.out.println("[Error] Task not found");
                 }
             } else if (select == 3) {
-                System.out.println("--- Delete item ---");//Удалить пункт.
-                System.out.print("Enter item Id: ");//Введите идентификатор предмета.
-                System.out.println("=== Delete item ===");
-                System.out.print("Enter item id: ");
+                System.out.println("--- Delete item ---");
+                System.out.print("Enter item Id: ");
                 String id = scanner.nextLine();
                 if (tracker.delete(id)) {
                     System.out.println("[OK] Task deleted");
@@ -64,31 +65,24 @@ import java.util.Scanner;
                     System.out.println("[Error] Task not found");
                 }
             } else if (select == 4) {
-                System.out.println("--- Find item by Id ---");//Найти предмет по идентификатору.
+                System.out.println("--- Find item by Id ---");
                 System.out.print("Enter item Id: ");
                 System.out.println("=== Find item by Id ===");
                 System.out.print("Enter item id: ");
-                //обьявляем строковую переменную типа id ,
-                //происходит считывание  строки индификатора начиная от ранее введенного индификатора.
                 String id = scanner.nextLine();
-                //вызываем метод findById из класса Tracker в котором получаем предмет по индификатору.
-                //переменной item с помощью метода передаем параметры индефикатора.
                 Item item = tracker.findById(id);
-                //если item неравен null то...
                 if (item != null) {
                     System.out.println(item);
-                    //System.out.println("Name: " + item.getName() + " id: " + item.getId());
-                } else {//если равно null то...
+                } else {
                     System.out.println("Task not found");
                 }
             } else if (select == 5) {
-                System.out.println("--- Find item by name ---");//Найти предмет по имени.
+                System.out.println("--- Find item by name ---");
                 System.out.println("=== Find item by name ===");
                 System.out.print("Enter item name: ");
                 String name = scanner.nextLine();
                 for (Item item : tracker.findByName(name)) {
                     System.out.println(item);
-                    //System.out.println("Name: " + item.getName() + " id: " + item.getId());
                 }
             } else if (select == 6) {
                 System.out.println("--- Exit program ---");
@@ -99,29 +93,28 @@ import java.util.Scanner;
     }
 
 
-
-        /**
-         * При запуске метода main в классе StartUI пользователю отображается следующее меню в консоле:
-         * За вывод метод отвечает метод: private void showMenu();
-         */
-        public void showMenu () {
-            System.out.println("==== Menu ===");
-            System.out.println("0. Add new Item");
-            System.out.println("1. Show all items");
-            System.out.println("2. Edit item");
-            System.out.println("3. Delete item");
-            System.out.println("4. Find item by Id");
-            System.out.println("5. Find items by name");
-            System.out.println("6. Exit Program");
-        }
-
-
-        public static void main (String[]args){
-            Scanner scanner = new Scanner(System.in);
-            Tracker tracker = new Tracker();
-            new StartUI().init(scanner, tracker);
-        }
+    /**
+     * При запуске метода main в классе StartUI пользователю отображается следующее меню в консоле:
+     * За вывод метод отвечает метод: private void showMenu();
+     */
+    public void showMenu() {
+        System.out.println("==== Menu ===");
+        System.out.println("0. Add new Item");
+        System.out.println("1. Show all items");
+        System.out.println("2. Edit item");
+        System.out.println("3. Delete item");
+        System.out.println("4. Find item by Id");
+        System.out.println("5. Find items by name");
+        System.out.println("6. Exit Program");
     }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().init(scanner, tracker);
+    }
+}
 
 
 

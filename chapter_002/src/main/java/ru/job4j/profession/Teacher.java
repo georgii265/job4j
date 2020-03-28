@@ -8,7 +8,7 @@ public class Teacher extends Profession {
      * @param name Имя учителя.
      */
     public Teacher(String name) {
-        super("Андрей","Иванов","Высшее","Апрель");
+        super("Андрей", "Иванов", "Высшее", "Апрель");
     }
 
     /**

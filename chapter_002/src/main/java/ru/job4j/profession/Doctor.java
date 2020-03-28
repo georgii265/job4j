@@ -6,11 +6,14 @@ package ru.job4j.profession;
  * Это поля и методы, должны отображать особенность класса.
  * Класс доктор.
  */
-public class  Doctor extends Profession{
+public class Doctor extends Profession {
 
-    private String experience;// Стаж
-    private int salary;// Зарплата
-    private String category;// Категория
+    private String experience;
+    // Стаж
+    private int salary;
+    // Зарплата
+    private String category;
+    // Категория
 
     public Doctor(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);
@@ -19,13 +22,15 @@ public class  Doctor extends Profession{
         this.category = category;
     }
 
-    public String getExperience(){
+    public String getExperience() {
         return experience;
     }
-    public  int getSalary(){
+
+    public int getSalary() {
         return salary;
     }
-    public String getCategory(){
+
+    public String getCategory() {
         return category;
     }
 }

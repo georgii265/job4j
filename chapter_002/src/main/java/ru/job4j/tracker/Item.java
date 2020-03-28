@@ -17,14 +17,15 @@ public class Item {
      * Сочетание клавиш alt+insert - и там выбираете toString(). Выбираете нужные поля и нажимаете ОК.
      * Дальше можно просто писать System.out.println(item),
      * и оно корректно будет выводить (автоматически будет вызывать toString).
+     *
      * @return
      */
     @Override
     public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "Item{"
+               + "id='" + id + '\''
+               + ", name='" + name + '\''
+               + '}';
     }
 
     public Item(String name) {

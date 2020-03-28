@@ -14,10 +14,10 @@ public class DummyDic {
     }
 
     public static void main(String[] args) {
-        DummyDic Dic = new DummyDic();
+        DummyDic dic = new DummyDic();
         //Теперь вызов метод peppy.sound() можно представить как переменную типа String. Ниже в методе main.
         //String say = ... вместо точек мы можем написать строку или подставить вывоз метода sound();
-        String eng = Dic.engToRus();
+        String eng = dic.engToRus();
         System.out.println("Неизвестное слово - " + eng);
     }
 }
