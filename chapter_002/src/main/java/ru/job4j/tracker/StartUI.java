@@ -27,15 +27,15 @@ public class StartUI {
             System.out.print("Select:");
             int select = Integer.valueOf(scanner.nextLine());
             if (select == 0) {
-                System.out.println("=== Create a new Item ===");
+                System.out.println("--- Create a new Item ---");
                 System.out.print("Enter name:");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
-                System.out.println("=== New item ===");
+                System.out.println("--- New item ---");
                 System.out.println(item);
             } else if (select == 1) {
-                System.out.println("=== All items ===");
+                System.out.println("--- All items ---");
                 for (Item item : tracker.findAll()) {
                     System.out.println(item);
                 }
