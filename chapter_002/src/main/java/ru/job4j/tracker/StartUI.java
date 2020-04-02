@@ -42,11 +42,8 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.println("--- Edit item ---");
                 System.out.print("Enter name: ");
-                System.out.println("=== Edit item ===");
-                System.out.print("Enter new name: ");
                 String name = scanner.nextLine();
                 System.out.print("Enter Id: ");
-                System.out.print("Enter new id: ");
                 String id = scanner.nextLine();
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
@@ -67,8 +64,6 @@ public class StartUI {
             } else if (select == 4) {
                 System.out.println("--- Find item by Id ---");
                 System.out.print("Enter item Id: ");
-                System.out.println("=== Find item by Id ===");
-                System.out.print("Enter item id: ");
                 String id = scanner.nextLine();
                 Item item = tracker.findById(id);
                 if (item != null) {
@@ -78,7 +73,6 @@ public class StartUI {
                 }
             } else if (select == 5) {
                 System.out.println("--- Find item by name ---");
-                System.out.println("=== Find item by name ===");
                 System.out.print("Enter item name: ");
                 String name = scanner.nextLine();
                 for (Item item : tracker.findByName(name)) {
@@ -86,7 +80,6 @@ public class StartUI {
                 }
             } else if (select == 6) {
                 System.out.println("--- Exit program ---");
-                System.out.println("=== Exit program ===");
                 run = false;
             }
         }
