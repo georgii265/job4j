@@ -2,7 +2,21 @@
    <modelVersion>4.0.0</modelVersion>
    <artifactId>chapter_001</artifactId>
    <version>2.0</version>
-   <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.3.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <packaging>jar</packaging>
    <parent>
        <groupId>ru.job4j</groupId>
        <artifactId>junior</artifactId>
