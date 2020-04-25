@@ -13,15 +13,15 @@ import java.util.Scanner;
  * Если ответ равен 0, то на консоль нужно вывести "Да".
  * Если ответ - 1, то на консоль нужно вывести "Нет".
  * Во всех остальных случаях напечатать - "Может быть".
+ * Это вопрос - "Будет ли завтра дождь?"
+ * класс Random сгенерируйет число от 0 до 3.
  */
 public class MagicBall {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Я великий Оракул. Что ты хочешь узнать? ");
         String question = input.nextLine();
-        //Это вопрос - "Будет ли завтра дождь?"
         int answer = new Random().nextInt(3);
-        //класс Random сгенерируйет число от 0 до 3.
         if (answer == 0) {
             System.out.print("Да");
         } else if (answer == -1) {

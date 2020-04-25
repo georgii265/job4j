@@ -8,11 +8,9 @@ package ru.job4j.profession;
 public class Surgeon extends Doctor {
 
     private int numbeSurgeon;
-    //Номер хирурга.
     private String specialization;
-    // Специализация
     private int kolOperations;
-    // Количество операций
+
 
     public Surgeon(String name, String surname, String education,
                    String birthday, int numbeSurgeon, String specialization, int kolOperations) {

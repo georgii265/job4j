@@ -8,11 +8,9 @@ package ru.job4j.profession;
 public class Programmer extends Engineer {
 
     private String developer;
-    // Разработчик
     private String experience;
-    //Стаж
     private int income;
-    //Доход
+
 
     public Programmer(String name, String surname, String education, String birthday, String developer,
                       String experience, int income) {

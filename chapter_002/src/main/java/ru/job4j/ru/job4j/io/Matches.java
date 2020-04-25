@@ -14,6 +14,7 @@ import java.util.Scanner;
  * Каждый из игроков может взять одну, две, или три спички.
  * Не взять ни одной нельзя, также как и взять более трех спичек.
  * Выигрывает тот игрок, который брал спички со стола последним.
+ *  if (igrok % 2 == 0) { //счетчик количества ходов победителя
  */
 public class Matches {
     public static void main(String[] args) {
@@ -28,7 +29,7 @@ public class Matches {
             match -= select;
             System.out.println();
         }
-        if (igrok % 2 == 0) { //счетчик количества ходов победителя
+        if (igrok % 2 == 0) {
             System.out.println("first");
         } else {
             System.out.println("second");

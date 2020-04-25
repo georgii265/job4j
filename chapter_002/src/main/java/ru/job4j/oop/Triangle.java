@@ -1,13 +1,20 @@
 package ru.job4j.oop;
 
 public class Triangle {
-    //Создадим три поля с типом Point.
+    /**
+     * Создадим три поля с типом Point.
+     */
     private Point first;
     private Point second;
     private Point third;
 
+    /**
+     * Создадим конструктор с тремя переменными типа Point.
+     * @param ap
+     * @param bp
+     * @param cp
+     */
     public Triangle(Point ap, Point bp, Point cp) {
-        //Создадим конструктор с тремя переменными типа Point.
         this.first = ap;
         this.second = bp;
         this.third = cp;

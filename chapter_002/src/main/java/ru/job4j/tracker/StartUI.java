@@ -4,22 +4,7 @@ package ru.job4j.tracker;
 import java.util.Scanner;
 
 public class StartUI {
-    /**
-     * обьявляем переменную run =  для хранения(true или false).
-     * выполняем цикл пока run = true.
-     * вызываем метод ShoMenu().
-     * Дальше пользователю нужно ввести пункт меню от 0 до 6.
-     * обьявляем строковую переменную типа name,
-     * происходит считывание  строки начиная от ранее введенного числа.
-     * обьявляем переменную типа Item с именем item и передаем ей параметры name.
-     * вызываем из класса Tracker метод add с параметрами item и добавляем новый предмет(item).
-     * цикл for each (тип Item и название массива item :название масссива =
-     * = т.е. здесь у нас находиться скопированный кусок массива(return Arrays.copyOf(items, position))/коллекции)
-     * вызываем метод findAll из класса Tracker для вызова заявки.
-     * вызываем метод replace из класса Tracker в котором делаем замену индефикатора и элемента.
-     * @param scanner
-     * @param tracker
-     */
+
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {

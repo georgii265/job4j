@@ -9,11 +9,9 @@ package ru.job4j.profession;
 public class Doctor extends Profession {
 
     private String experience;
-    // Стаж
     private int salary;
-    // Зарплата
     private String category;
-    // Категория
+
 
     public Doctor(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);

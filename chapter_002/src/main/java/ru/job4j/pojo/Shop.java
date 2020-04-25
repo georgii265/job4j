@@ -12,6 +12,9 @@ public class Shop {
      * products[index] = products[index + 1];
      * 2. Добавьте демонстрацию работы примера в метод main.
      * Java предоставляет встроенный метод System.arraycopy() для копирования элементов из одного массива в другой.
+     * Product[] delete = delete(products, 4);
+     * вызываем метод удаления.
+     * new Shop().delete(products, 5); можно еще таким способом вызвать.
      */
     public static Product[] delete(Product[] products, int index) {
 
@@ -26,7 +29,6 @@ public class Shop {
     public static void main(String[] args) {
 
         Product[] products = new Product[5];
-        //создание массива.
 
         products[0] = new Product("Молоко", 10);
         products[1] = new Product("Лимонад", 15);
@@ -34,8 +36,6 @@ public class Shop {
         products[3] = new Product("Яйцо", 18);
         products[4] = new Product("Гречка", 23);
         Product[] delete = delete(products, 4);
-        // вызываем метод удаления.
-        //new Shop().delete(products, 5); можно еще таким способом вызвать.
 
         for (int i = 0; i < delete.length; i++) {
             Product product = delete[i];

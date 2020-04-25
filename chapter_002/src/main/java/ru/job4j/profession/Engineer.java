@@ -6,11 +6,9 @@ package ru.job4j.profession;
 public class Engineer extends Profession {
 
     private String qualification;
-    //Квалификация
     private String education;
-    //Образование
     private int serviceCost;
-    //Стоимость услуг
+
 
     public Engineer(String name, String surname, String education, String birthday) {
         super(name, surname, education, birthday);

@@ -8,11 +8,9 @@ package ru.job4j.profession;
 
 public class Builder extends Engineer {
     private String type;
-    //Тип
     private String characteristic;
-    //Характеристика
     private String practice;
-    //Практика
+
 
     public Builder(String name, String surname, String education, String birthday, String type,
                     String characteristic, String practice) {

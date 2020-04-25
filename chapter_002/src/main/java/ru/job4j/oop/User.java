@@ -1,7 +1,6 @@
 package ru.job4j.oop;
 
 public class User {
-
     /**
      * Это поле обьекта.
      * Поля описываются как обычные переменные.
@@ -10,13 +9,10 @@ public class User {
      * вызывая их методы
      */
     private String name;
-    //имя
-
     /**
      * это поле обьекта.
      */
     private int age;
-    //возраст
 
     public User(String name, String body) {
     }
