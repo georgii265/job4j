@@ -1,6 +1,4 @@
 package ru.job4j.tracker;
-
-
 /**
  * Разорвать связь этих классов мы можем через введение интерфейса.
  * Мы уже создали интерфейс ru.job4j.tracker.Input, который отвечает за ввод данных от пользователя.
@@ -15,30 +13,89 @@ package ru.job4j.tracker;
  * 5. В методе Start.main мы создаем объект new Scanner.
  * Вместо объекта new Scanner нужно прописать объект реализации интерфейса Input.
  */
-
 public class StartUI {
+    private static Input input;
+    private static Tracker tracker;
+    private static String id;
+    private static String name;
+    private static Item item;
+    /**
+     * Чтобы создать статический метод нам нужно в объявлении метода добавить ключевое слово static.
+     * Вызов этого метода происходит через обращение к классу, а не к объекту.
+     * @param input
+     * @param tracker
+     */
+    public static void  createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.add(item);
+    }
+
+    public static void findAllItem(Input input,Tracker tracker) {
+        System.out.println("--- All items ---");
+        String name =  input.askStr("Enter name: ");
+        Item[] item = tracker.findAll();
+        System.out.println(item);
+    }
+
+    public static void replaceItem(Input input,Tracker tracker) {
+        System.out.println("--- Edit item ---");
+        String name =  input.askStr("Enter name: ");
+        String id =  input.askStr("Enter Id: ");
+        Item item = new Item(name);
+        tracker.replace(id,item);
+    }
+
+    public static void deleteItem(Input input,Tracker tracker) {
+        System.out.println("--- Delete item ---");
+        String id =  input.askStr("Enter item Id: ");
+        tracker.delete(id);
+    }
+
+    public static void findByIdItem(Input input,Tracker tracker) {
+        System.out.println("--- Find item by Id ---");
+        String id =  input.askStr("Enter item Id: ");
+        Item item = tracker.findById(id);
+    }
+
+    public static void findByNameItem(Input input, Tracker tracker) {
+        System.out.println("--- Find item by name ---");
+        String name =  input.askStr("Enter item name: ");
+        Item[] item = tracker.findByName(name);
+    }
+
+    /**
+     * В классе StartUI есть метод init в котором будет содержится блок из множественного if.
+     * Давайте все блоки в условии вынесем в статические методы.
+     * @param input
+     * @param tracker
+     */
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
-            int select = Integer.valueOf( input.askStr("Select:"));
+            int select = input.askInt("Select: ");
             if (select == 0) {
-                System.out.println("--- Create a new Item ---");
-                String name =  input.askStr("Enter name:");
-                Item item = new Item(name);
-                tracker.add(item);
-                System.out.println("--- New item ---");
-                System.out.println(item);
+                StartUI.createItem(input, tracker);
+//                System.out.println("--- Create a new Item ---");
+//                String name =  input.askStr("Enter name:");
+//                Item item = new Item(name);
+//                tracker.add(item);
+//                System.out.println("--- New item ---");
+//                System.out.println(item);
             } else if (select == 1) {
-                System.out.println("--- All items ---");
-                for (Item item : tracker.findAll()) {
-                    System.out.println(item);
+                StartUI.findAllItem(input, tracker);
+               // System.out.println("--- All items ---");
+                for (Item item : tracker.findAll()) {//мне ни понятно как реализовывать в этих строчках кода.
+                    System.out.println(item);//как мне их инициализировать.
                 }
             } else if (select == 2) {
-                System.out.println("--- Edit item ---");
-                String name =  input.askStr("Enter name: ");
-                String id =  input.askStr("Enter Id: ");
-                Item item = new Item(name);
+                StartUI.replaceItem(input, tracker);
+//                System.out.println("--- Edit item ---");
+//                String name =  input.askStr("Enter name: ");
+//                String id =  input.askStr("Enter Id: ");
+//                Item item = new Item(name);
                 if (tracker.replace(id, item)) {
                     System.out.println("[OK] Task changed");
                     System.out.println(item);
@@ -46,25 +103,28 @@ public class StartUI {
                     System.out.println("[Error] Task not found");
                 }
             } else if (select == 3) {
-                System.out.println("--- Delete item ---");
-                String id =  input.askStr("Enter item Id: ");
+                StartUI.deleteItem(input, tracker);
+//                System.out.println("--- Delete item ---");
+//                String id =  input.askStr("Enter item Id: ");
                 if (tracker.delete(id)) {
                     System.out.println("[OK] Task deleted");
                 } else {
                     System.out.println("[Error] Task not found");
                 }
             } else if (select == 4) {
-                System.out.println("--- Find item by Id ---");
-                String id =  input.askStr("Enter item Id: ");
-                Item item = tracker.findById(id);
+                StartUI.findByIdItem(input, tracker);
+//                System.out.println("--- Find item by Id ---");
+//                String id =  input.askStr("Enter item Id: ");
+//                Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println(item);
                 } else {
                     System.out.println("Task not found");
                 }
             } else if (select == 5) {
-                System.out.println("--- Find item by name ---");
-                String name =  input.askStr("Enter item name: ");
+                StartUI.findByNameItem(input, tracker);
+//                System.out.println("--- Find item by name ---");
+//                String name =  input.askStr("Enter item name: ");
                 for (Item item : tracker.findByName(name)) {
                     System.out.println(item);
                 }
@@ -91,11 +151,23 @@ public class StartUI {
         System.out.println("6. Exit Program");
     }
 
-
+    /**
+     * Вызов не статического метода. Необходимо обратиться через объект.
+     *     new StartUI().init(input, tracker);
+     *  Вызов статического метода. Обращаемся через класс.
+     *     StartUI.createItem(input, tracker);
+     * @param args
+     */
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);
+        StartUI.createItem(input, tracker);
+        StartUI.findAllItem(input,tracker);
+        StartUI.deleteItem(input, tracker);
+        StartUI.replaceItem(input, tracker);
+        StartUI.findByIdItem(input, tracker);
+        StartUI.findByNameItem(input, tracker);
     }
 }
 
