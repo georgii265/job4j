@@ -14,11 +14,11 @@ package ru.job4j.tracker;
  * Вместо объекта new Scanner нужно прописать объект реализации интерфейса Input.
  */
 public class StartUI {
-    private static Input input;
-    private static Tracker tracker;
-    private static String id;
-    private static String name;
-    private static Item item;
+//    private static Input input;
+//    private static Tracker tracker;
+//    private static String id;
+//    private static String name;
+//    private static Item item;
     /**
      * Чтобы создать статический метод нам нужно в объявлении метода добавить ключевое слово static.
      * Вызов этого метода происходит через обращение к классу, а не к объекту.
@@ -44,6 +44,7 @@ public class StartUI {
         String name =  input.askStr("Enter name: ");
         String id =  input.askStr("Enter Id: ");
         Item item = new Item(name);
+        item.setId(id);
         tracker.replace(id,item);
         System.out.println("[OK] Task changed");
         System.out.println(item);
