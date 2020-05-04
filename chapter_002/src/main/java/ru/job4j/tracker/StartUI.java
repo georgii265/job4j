@@ -14,11 +14,7 @@ package ru.job4j.tracker;
  * Вместо объекта new Scanner нужно прописать объект реализации интерфейса Input.
  */
 public class StartUI {
-//    private static Input input;
-//    private static Tracker tracker;
-//    private static String id;
-//    private static String name;
-//    private static Item item;
+
     /**
      * Чтобы создать статический метод нам нужно в объявлении метода добавить ключевое слово static.
      * Вызов этого метода происходит через обращение к классу, а не к объекту.
@@ -34,29 +30,34 @@ public class StartUI {
 
     public static void findAllItem(Input input,Tracker tracker) {
         System.out.println("--- All items ---");
-        String name = input.askStr("Enter name: ");
         Item[] item = tracker.findAll();
-        System.out.println(item);
+        for (int i = 0; i < item.length; i++) {
+            Item item1 = item[1];
+            System.out.println(item1);
+        }
     }
 
     public static void replaceItem(Input input,Tracker tracker) {
         System.out.println("--- Edit item ---");
-        String name =  input.askStr("Enter name: ");
-        String id =  input.askStr("Enter Id: ");
+        String name = input.askStr("Enter name: ");
+        String id = input.askStr("Enter Id: ");
         Item item = new Item(name);
         item.setId(id);
-        tracker.replace(id,item);
-        System.out.println("[OK] Task changed");
-        System.out.println(item);
-        System.out.println("[Error] Task not found");
+        if (tracker.replace(id, item)) {
+            System.out.println("[OK] Task changed");
+        } else {
+            System.out.println("[Error] Task not found");
+        }
     }
 
     public static void deleteItem(Input input,Tracker tracker) {
         System.out.println("--- Delete item ---");
-        String id =  input.askStr("Enter item Id: ");
-        tracker.delete(id);
-        System.out.println("[OK] Task deleted");
-        System.out.println("[Error] Task not found");
+        String id = input.askStr("Enter item Id: ");
+        if (tracker.delete(id)) {
+            System.out.println("[OK] Task deleted");
+        } else {
+            System.out.println("[Error] Task not found");
+        }
     }
 
     public static void findByIdItem(Input input,Tracker tracker) {
