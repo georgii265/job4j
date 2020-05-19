@@ -42,7 +42,6 @@ public class StartUI {
         String name = input.askStr("Enter name: ");
         String id = input.askStr("Enter Id: ");
         Item item = new Item(name);
-        item.setId(id);
         if (tracker.replace(id, item)) {
             System.out.println("[OK] Task changed");
         } else {
@@ -71,6 +70,7 @@ public class StartUI {
         System.out.println("--- Find item by name ---");
         String name =  input.askStr("Enter item name: ");
         tracker.findByName(name);
+        System.out.println("Task not found");
     }
 
     /**

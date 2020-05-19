@@ -24,7 +24,7 @@ public class MagicBall {
         int answer = new Random().nextInt(3);
         if (answer == 0) {
             System.out.print("Да");
-        } else if (answer == -1) {
+        } else if (answer == 2) {
             System.out.print("Нет");
         } else {
             System.out.print("Может быть");
