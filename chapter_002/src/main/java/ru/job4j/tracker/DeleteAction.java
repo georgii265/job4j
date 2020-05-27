@@ -10,7 +10,11 @@ public class DeleteAction implements UserAction {
    @Override
     public boolean execute(Input input, Tracker tracker) {
         String id = input.askStr("Enter item Id: ");
-        tracker.delete(id);
+        if (tracker.delete(id)) {
+            System.out.println("[OK] Task deleted");
+        } else {
+           System.out.println("[Error] Task not found");
+        }
         return true;
     }
 }
