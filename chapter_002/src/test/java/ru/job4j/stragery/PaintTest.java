@@ -31,7 +31,6 @@ public class PaintTest {
         System.setOut(this.stdout);
         System.out.println("execute after method");
     }
-
     @Test
     public void whenDrawSquare() {
         new Paint().draw(new Square());
@@ -47,8 +46,6 @@ public class PaintTest {
                 )
         );
     }
-
-
     @Test
     public void whenDrawTriangle() {
         new Paint().draw(new Triangle());
