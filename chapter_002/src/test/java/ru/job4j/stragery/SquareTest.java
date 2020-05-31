@@ -7,7 +7,7 @@ import static org.hamcrest.core.Is.is;
 
 
 /**
- * @author Petr Arsentev (parsentev@yandex.ru)
+ * @author Georgii Morgunov (georgii.mogunov@mail.ru)
  * @version $Id$
  * @since 0.1
  */
@@ -20,10 +20,10 @@ public class SquareTest {
                 square.draw(),
                 is(
                         new StringJoiner(System.lineSeparator())
-                                .add("++++")
-                                .add("+  +")
-                                .add("+  +")
-                                .add("++++")
+                                .add("+++++++++")
+                                .add("+       +")
+                                .add("+       +")
+                                .add("+++++++++")
                                 .toString()
                 )
         );
