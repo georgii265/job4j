@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -42,7 +45,6 @@ public class StartUITest {
         Item replaced = tracker.findById(item.getId());
         assertThat(replaced.getName(), is("replaced item"));
     }
-
     /**
      * Напишите тест на метод StartUI.deleteItem. В этом случае поиск в объекте tracker должен вернуть null.
      * Порядок действий.
@@ -67,7 +69,6 @@ public class StartUITest {
         Item expected = null;
         assertThat(result, is(expected));
     }
-
     @Test
     public void whenExit() {
         StubInput input = new StubInput(
@@ -76,5 +77,33 @@ public class StartUITest {
         StubAction action = new StubAction();
         new StartUI().init(input, new Tracker(), new UserAction[]{action});
         assertThat(action.isCall(), is(true));
+    }
+
+    /**
+     *  Создаем объект ByteArrayOutputStream.
+     *  Получаем ссылку на системный объект PrintStream.
+     *  Устанавливаем в системный вывод объект из пункта 1.
+     *  Производим действия по выводу информации на консоль.
+     *  Сравниваем знания.
+     *  Проставляем в системный вывод объект из пункта 2.
+     *  Здесь используется новый класс StringJoiner.
+     *  Этот класс позволяет объединить несколько строк через разделитель.
+     */
+    @Test
+    public void whenPrtMenu() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream def = System.out;
+        System.setOut(new PrintStream(out));
+        StubInput input = new StubInput(
+                new String[]{"0"}
+        );
+        StubAction action = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add("Menu.")
+                .add("0. --- Stub Action ---")
+                .toString();
+        assertThat(new String(out.toByteArray()), is(expect));
+        System.setOut(def);
     }
 }
