@@ -1,6 +1,9 @@
 package ru.job4j.ex;
 
-
+/**
+ * throw new IllegalArgumentException("Start should be less then finish.");
+ *         } //метод вызывает с не корректными параметрами.
+ */
 public class Count {
     public static int add(int start, int finish)  {
         if (start > finish) {
