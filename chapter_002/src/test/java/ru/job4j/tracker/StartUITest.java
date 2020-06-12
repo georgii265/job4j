@@ -10,9 +10,6 @@ import static org.junit.Assert.assertThat;
 
 public class StartUITest {
 
-
-
-
     @Test
     public void whenAddItem() {
         String[] answers = {"Fix PC"};//Массив строк в котором есть только один элемент "Fix pc"

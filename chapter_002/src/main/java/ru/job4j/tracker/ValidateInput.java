@@ -11,7 +11,20 @@ package ru.job4j.tracker;
  *
  * Давайте назовем его ValidateInput.
  */
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
+
+    private final Output out;
+    private final Input in;
+
+    public ValidateInput(Output out, Input input) {
+        this.out = out;
+        this.in = input;
+    }
+
+    @Override
+    public String askStr(String question) {
+        return in.askStr(question);
+    }
 
     /**
      * цикл do-while выполняется по крайней мере один раз, даже если условие изначально ложно
@@ -22,18 +35,17 @@ public class ValidateInput extends ConsoleInput {
     public int askInt(String question) {
         boolean invalid = true;
         int value = -1;
-        do {// команда (тело цикла)
+        do {
             try {
-                value = super.askInt(question);//вопрос
+                value = in.askInt(question);
                 invalid = false;
             } catch (IllegalStateException moe) {
-                System.out.println("Please select key from menu.");//Пожалуйста, выберите ключ из меню
+                out.println("Please select key from menu.");
             } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again.");//Пожалуйста, введите проверочные данные снова.
+                out.println("Please enter validate data again.");
             }
-        } while (invalid);//(условие-логическое выражение)
+        } while (invalid);
         return value;
-    }//После оператора return указывается возвращаемое значение, которое является результатом метода.
-    // Это может быть литеральное значение, значение переменной или какого-то сложного выражения.
+    }
 }
 

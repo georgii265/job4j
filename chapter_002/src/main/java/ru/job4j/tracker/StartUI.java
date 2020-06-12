@@ -1,26 +1,6 @@
 package ru.job4j.tracker;
 
 
-
-
-/**
- * 1.Мы получаем от пользователя пункт меню.
- *   int select = input.askInt("Select: ");
- *
- * 2.Этот параметр мы используем в качестве индекса в массиве actions.
- *     UserAction action = actions[select];
- *
- * 3.Далее мы получаем из массива один из объектов UserAction (CreateAction, ReplaceAction ....);
- *   for (int index = 0; index < actions.length; index++) {
- *   System.out.println(index + ". " + actions[index].name());
- *   }
- *
- * 4.У полученного объекта вызываем метод execute с передачей параметров input и tracker.
- *     run = action.execute(input, tracker);
- *
- * Нам нужно добавить параметр UserAction[] в метод init.
- *
- */
 public class StartUI {
     private final Output out;
 
@@ -49,15 +29,9 @@ public class StartUI {
         }
     }
 
-    /**
-     * массив с действиями.
-     * UserAction[] actions = {
-     * new CreateAction() и т.д.
-     * };
-     */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output), new ReplaceAction(),
