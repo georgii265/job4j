@@ -6,10 +6,12 @@ import java.io.PrintStream;
 import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static sun.jvm.hotspot.runtime.VMOps.Exit;
 
 
 public class StartUITest {
+
+
+
 
     @Test
     public void whenAddItem() {
@@ -22,6 +24,7 @@ public class StartUITest {
         Item expected = new Item("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
     }
+
     /**
      * Порядок действий.
      * 1. Создаем объект tracker.
@@ -46,6 +49,7 @@ public class StartUITest {
         Item replaced = tracker.findById(item.getId());
         assertThat(replaced.getName(), is("replaced item"));
     }
+
     /**
      * Напишите тест на метод StartUI.deleteItem. В этом случае поиск в объекте tracker должен вернуть null.
      * Порядок действий.
@@ -70,6 +74,7 @@ public class StartUITest {
         Item expected = null;
         assertThat(result, is(expected));
     }
+
     @Test
     public void whenExit() {
         StubInput input = new StubInput(
@@ -81,14 +86,14 @@ public class StartUITest {
     }
 
     /**
-     *  Создаем объект ByteArrayOutputStream.
-     *  Получаем ссылку на системный объект PrintStream.
-     *  Устанавливаем в системный вывод объект из пункта 1.
-     *  Производим действия по выводу информации на консоль.
-     *  Сравниваем знания.
-     *  Проставляем в системный вывод объект из пункта 2.
-     *  Здесь используется новый класс StringJoiner.
-     *  Этот класс позволяет объединить несколько строк через разделитель.
+     * Создаем объект ByteArrayOutputStream.
+     * Получаем ссылку на системный объект PrintStream.
+     * Устанавливаем в системный вывод объект из пункта 1.
+     * Производим действия по выводу информации на консоль.
+     * Сравниваем знания.
+     * Проставляем в системный вывод объект из пункта 2.
+     * Здесь используется новый класс StringJoiner.
+     * Этот класс позволяет объединить несколько строк через разделитель.
      */
     @Test
     public void whenPrtMenu() {
@@ -106,26 +111,5 @@ public class StartUITest {
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
         System.setOut(def);
-    }
-    @Test
-    public void whenInvalidExit() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"Select: " + "--- Ann item ---" + "--- All items ---"}
-        );
-        Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new Exit()
-        };
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                String.format(
-                                  "Menu.%n"
-                                + "0. Exit%n"
-                                + "Wrong input, you can select: 0 .. 0%n"
-                                + "Menu.%n"
-                                + "0. Exit%n"
-                )
-        ));
     }
 }

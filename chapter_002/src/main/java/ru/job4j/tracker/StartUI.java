@@ -1,9 +1,7 @@
 package ru.job4j.tracker;
 
 
-import org.graalvm.compiler.debug.CSVUtil;
 
-import static sun.jvm.hotspot.runtime.VMOps.Exit;
 
 /**
  * 1.Мы получаем от пользователя пункт меню.
@@ -24,6 +22,11 @@ import static sun.jvm.hotspot.runtime.VMOps.Exit;
  *
  */
 public class StartUI {
+    private final Output out;
+
+    public StartUI(Output out) {
+        this.out = out;
+    }
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
@@ -57,9 +60,7 @@ public class StartUI {
         Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(output),
-                new Exit(),
-                new CreateAction(), new ReplaceAction(),
+                new CreateAction(output), new ReplaceAction(),
                 new DeleteAction(), new FindAllAction(),
                 new FindByNameAction(), new FindByIdAction(),
                 new ExitProgramAction(), new StubAction()
