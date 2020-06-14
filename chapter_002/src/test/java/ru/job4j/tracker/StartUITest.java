@@ -15,7 +15,8 @@ public class StartUITest {
         String[] answers = {"Fix PC"};//Массив строк в котором есть только один элемент "Fix pc"
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        CreateAction createAction = new CreateAction();
+        Output out = new StubOutput();
+        CreateAction createAction = new CreateAction(out);
         createAction.execute(input, tracker);
         Item created = tracker.findAll()[0];
         Item expected = new Item("Fix PC");
@@ -78,7 +79,8 @@ public class StartUITest {
                 new String[]{"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        Output out = new StubOutput();
+        new StartUI(out).init(input, new Tracker(), new UserAction[]{action});
         assertThat(action.isCall(), is(true));
     }
 
@@ -101,7 +103,8 @@ public class StartUITest {
                 new String[]{"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        Output output = new ConsoleOutput();
+        new StartUI(output).init(input, new Tracker(), new UserAction[]{action});
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. --- Stub Action ---")
