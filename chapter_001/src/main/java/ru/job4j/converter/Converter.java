@@ -10,7 +10,7 @@ public class Converter {
      * @param value рубли.
      * @return Евро.
      */
-    public int rubleToEuro(int value) {
+    public static int rubleToEuro(int value) {
         return value / 70;
     }
 
@@ -19,7 +19,7 @@ public class Converter {
      * @param value рубли.
      * @return Доллары.
      */
-    public int rubleToDollar(int value) {
+    public static int rubleToDollar(int value) {
         return value / 60;
     }
 
@@ -28,7 +28,7 @@ public class Converter {
      * @param value евро.
      * @return Рубли.
      */
-    public int euroToRuble(int value) {
+    public static int euroToRuble(int value) {
         return value * 70;
     }
 
@@ -38,7 +38,19 @@ public class Converter {
      * @return Рубли.
      */
 
-    public int dollarToRuble(int value) {
-        return value * 67; // нужно умножить курс на сумму рублей, разве нет??
+    public static int dollarToRuble(int value) {
+        return value * 60;
+    }
+    public static void main(String[] args) {
+        int euro = Converter.rubleToEuro(70);
+        int ruble1 = Converter.euroToRuble(1);
+        int dollar = Converter.rubleToDollar(60);
+        int ruble = Converter.dollarToRuble(1);
+        System.out.println("70 rubles are " + euro + " euro.");
+        System.out.println("1 euro are " + ruble1 + " ruble.");
+        System.out.println("60 rubles are " + dollar + " dollar.");
+        System.out.println("1 dollar are " + ruble + " ruble.");
+
+
     }
 }
