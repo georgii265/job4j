@@ -10,7 +10,7 @@ public class Fit {
      * @param height Рост.
      * @return идеальный вес.
      */
-    public double manWeight(double height) {
+    public static double manWeight(short height) {
         double weight = (height - 100) * 1.15;
         return weight;
     }
@@ -20,8 +20,15 @@ public class Fit {
      * @param height Рост.
      * @return идеальный вес.
      */
-    public double womanWeight(double height) {
+    public static double womanWeight(short height) {
         double weight = (height - 110) * 1.15;
         return weight;
+    }
+
+    public static void main(String[] args) {
+        double man = Fit.manWeight((short)187);
+        double woman = Fit.womanWeight((short)162);
+        System.out.println("Man 187 is " + man);
+        System.out.println("Woman 162 is " + woman);
     }
 }
