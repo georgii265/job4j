@@ -50,7 +50,5 @@ public class Converter {
         System.out.println("1 euro are " + ruble1 + " ruble.");
         System.out.println("60 rubles are " + dollar + " dollar.");
         System.out.println("1 dollar are " + ruble + " ruble.");
-
-
     }
 }
