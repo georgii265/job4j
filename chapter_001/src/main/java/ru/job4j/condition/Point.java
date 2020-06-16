@@ -4,29 +4,25 @@ import static java.lang.Math.*;
 
 public class Point {
 
-    private int x;
+    private int x1;
+    private int x2;
+    private int y1;
+    private int y2;
 
-    private int y;
+    public  Point(int first, int second, int third, int fourth) {
+        this.x1 = first;
+        this.x2 = second;
+        this.y1 = third;
+        this.y2 = fourth;
 
-    private int z;
-
-    /**
-     * Конструтор, который принимает начальное состояние объекта "точка"
-     *
-     * @param first  координата x
-     * @param second координата y
-     */
-    public Point(int first, int second, int third) {
-        this.x = first;
-        this.y = second;
-        this.z = third;
+    }
+    private static double distance(int x1, int y1, int x2, int y2) {
+        double rsl = sqrt(pow(x2 - x1, 2) + (pow(y2 - y1, 2)));
+        return rsl;
     }
 
-    public double distance3d(Point that) {
-        return Math.sqrt(Math.pow(that.x - this.x, 2) + (Math.pow(that.y - this.y, 2) + (Math.pow(that.z - this.z, 2))));
-    }
-
-    public void info() {
-        System.out.println(String.format("Point[%s, %s]", this.x, this.y, this.z));
+    public static void main(String[] args) {
+        double result = Point.distance(0,0, 2, 0);
+        System.out.println("result (0, 0) to (2, 0) " + result);
     }
 }
