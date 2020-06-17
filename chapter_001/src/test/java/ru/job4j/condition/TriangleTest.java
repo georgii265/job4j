@@ -7,7 +7,7 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 
 public class TriangleTest {
 
-    /* Создаем три объекта класса Point.
+    /** Создаем три объекта класса Point.
      * Создаем объект треугольник и передаем в него объекты точек.
      * Вычисляем площадь.
      * Задаем ожидаемый результат.
@@ -16,7 +16,7 @@ public class TriangleTest {
 
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
-        Point first = new Point(1,2,3);// ниполучается реализовать то ,что он от меня просит
+        Point first = new Point(1,2,3);
         first.info();
         Point second = new Point(1,2,4);
         second.info();
