@@ -8,19 +8,15 @@ import static org.junit.Assert.assertThat;
 
 public class TriangleTest {
 
-    /*
-     * Создадим три поля с типом Point.
-     */
-
     @Test
     public void point() {
         Point first = new Point(0, 0);
         Point second = new Point(0, 2);
         Point third = new Point(2, 0);
         double result = first.distance(second);
-        first.info();
-        second.info();
-        third.info();
+        first.distance(first);
+        second.distance(second);
+        third.distance(third);
         System.out.println(String.format("Result is %s", result));
         assertThat(result, is(2D));
     }
@@ -35,10 +31,10 @@ public class TriangleTest {
     @Test
     public void area() {
         Point first = new Point(0, 0);
-        first.info();
+        first.distance(first);
         Point second = new Point(0, 2);
-        second.info();
+        second.distance(second);
         Point third = new Point(2, 0);
-        third.info();
+        third.distance(third);
     }
 }

@@ -13,15 +13,11 @@ public class PointTest {
         Point first = new Point(0, 0);
         Point second = new Point(0, 10);
         double result = first.distance(second);
-        first.info();
-        second.info();
+        first.distance(first);
+        second.distance(second);
         System.out.println(String.format("Result is %s", result));
         assertThat(result, is(10D));
     }
-
-    /*так я добавил тест, который считает расстояния до себя.
-     *point.distance(point); - очевидно, что расстояние будет 0.
-     */
 
     @Test
     public void whenCheckItself() {
@@ -30,15 +26,11 @@ public class PointTest {
         assertThat(result, is(0D));
     }
 
-    /*Давайте в тесте создадим два объекта класса Point.
-     *Из класса мы создали два объекта с разными начальными состояниями.
-     */
-
     @Test
     public void whenShowInfo() {
         Point first = new Point(1, 1);
-        first.info();
+        first.distance(first);
         Point second = new Point(2, 2);
-        second.info();
+        second.distance(second);
     }
 }
