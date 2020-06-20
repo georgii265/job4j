@@ -2,22 +2,21 @@ package ru.job4j.oop;
 
 public class Battery {
 
-    private int value;
+    private int load;
 
-    public Battery(int load) {
-
-        this.value = load;
+    public Battery(int value) {
+        this.load = value;
     }
 
     public void exchange(Battery another) {
-        this.value = this.value + another.value;
-        another.value = 0;
+        this.load = this.load + another.load;
+        another.load = 0;
     }
 
     public static void main(String[] args) {
         Battery exchange = new Battery(0);
         Battery another = new Battery(10);
-        System.out.println("exchange : " + exchange.value + ". another : " + another.value);
+        System.out.println("exchange : " + exchange.load + ". another : " + another.load);
         exchange.exchange(another);
     }
 }
