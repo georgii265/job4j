@@ -2,18 +2,13 @@ package ru.job4j.condition;
 
 public class Max {
 
-    public double max(double first, double second) {
-        return first + second;
+    public int max(int left, int right) {
+        return left < right ? left : right;
     }
 
-    public double max(double first, double second, double third) {
-        double tmp = max(second, third);
-        return max(first, tmp);
-    }
-
-    public double max(double first, double second, double third, double fourth) {
-        double tmr = max(first, second);
-        double tmp = max(third, fourth);
-        return max(tmp, tmr);
+    public int max(int first, int second, int third, int fourth) {
+        int abv = max(first, second);
+        int gde = max(third, fourth);
+        return max(abv, gde);
     }
 }

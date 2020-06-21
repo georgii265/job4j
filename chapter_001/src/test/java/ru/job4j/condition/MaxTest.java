@@ -8,23 +8,16 @@ import static org.junit.Assert.assertThat;
 public class MaxTest {
 
     @Test
-    public void whenMaxFo2Numbers() {
+    public void max() {
         Max max = new Max();
-        double result = max.max(1, 2);
-        assertThat(result, is(3.0));
+        int result = max.max(1, 2, 3, 4);
+        assertThat(result, is(1));
     }
 
     @Test
-    public void whenMaxFo3Numbers() {
+    public void whenMaxFo3NumbersMaxFo4Numbers() {
         Max max = new Max();
-        double result = max.max(1, 2, 3);
-        assertThat(result, is(6.0));
-    }
-
-    @Test
-    public void whenMaxFo4Numbers() {
-        Max max = new Max();
-        double result = max.max(1, 2, 3, 4);
-        assertThat(result, is(10.0));
+        int result = max.max(1, 2, 3,4);
+        assertThat(result, is(1));
     }
 }
