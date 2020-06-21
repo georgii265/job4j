@@ -1,21 +1,19 @@
 package ru.job4j.condition;
 
 public class Max {
-    /**
-     * Method max.
-     * Находит максимальное из двух чисел.
-     *
-     * @param left  - Первое число.
-     * @param right - Второе число.
-     * @return Значение максимального из двух чисел.
-     */
-    public int max(int left, int right) {
-        return left > right ? left : right;
+
+    public double add(double first, double second) {
+        return first + second;
     }
 
-    public int max(int first, int second, int third) {
-        int tmp = max(second, third);
-        int max = max(first, tmp);
-        return max;
+    public double add(double first, double second, double third) {
+        double tmp = add(second, third);
+        return add(first, tmp);
+    }
+
+    public double add(double first, double second, double third, double fourth) {
+        double tmr = add(first, second);
+        double tmp = add(third, fourth);
+        return add(tmp, tmr);
     }
 }
