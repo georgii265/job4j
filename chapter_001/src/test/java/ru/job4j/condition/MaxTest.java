@@ -9,22 +9,22 @@ public class MaxTest {
 
     @Test
     public void whenMaxFo2Numbers() {
-        Max add = new Max();
-        double result = add.add(1, 2);
+        Max max = new Max();
+        double result = max.add(1, 2);
         assertThat(result, is(3.0));
     }
 
     @Test
     public void whenMaxFo3Numbers() {
-        Max add = new Max();
-        double result = add.add(1, 2, 3);
+        Max max = new Max();
+        double result = max.add(1, 2, 3);
         assertThat(result, is(6.0));
     }
 
     @Test
     public void whenMaxFo4Numbers() {
-        Max add = new Max();
-        double result = add.add(1, 2, 3, 4);
+        Max max = new Max();
+        double result = max.add(1, 2, 3, 4);
         assertThat(result, is(10.0));
     }
 }
