@@ -18,20 +18,12 @@ public class PointTest {
         assertThat(result, is(0.0));
     }
 
-    /*так я добавил тест, который считает расстояния до себя.
-     *point.distance(point); - очевидно, что расстояние будет 0.
-     */
-
     @Test
     public void whenCheckItself() {
         Point point = new Point(1,2,3);
         double result = point.distance3d(point);
         assertThat(result, is(0.0));
     }
-
-    /*Давайте в тесте создадим два объекта класса Point.
-     *Из класса мы создали два объекта с разными начальными состояниями.
-     */
 
     @Test
     public void whenShowInfo() {
