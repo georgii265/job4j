@@ -11,9 +11,8 @@ public class Surgeon extends Doctor {
     private String specialization;
     private int kolOperations;
 
-
-    public Surgeon(String name, String surname, String education,
-                   String birthday, int numbeSurgeon, String specialization, int kolOperations) {
+    public Surgeon(String name, String surname, String education, String birthday, int numbeSurgeon,
+                   String specialization, int kolOperations) {
         super(name, surname, education, birthday);
         this.numbeSurgeon = numbeSurgeon;
         this.specialization = specialization;

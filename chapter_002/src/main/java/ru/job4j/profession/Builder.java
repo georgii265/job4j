@@ -7,13 +7,13 @@ package ru.job4j.profession;
  */
 
 public class Builder extends Engineer {
+
     private String type;
     private String characteristic;
     private String practice;
 
-
-    public Builder(String name, String surname, String education, String birthday, String type,
-                    String characteristic, String practice) {
+    public Builder(String name, String surname, String education, String birthday, String type, String characteristic,
+                   String practice) {
         super(name, surname, education, birthday);
         this.type = type;
         this.characteristic = characteristic;
