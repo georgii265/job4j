@@ -1,7 +1,5 @@
 package ru.job4j.pojo;
 
-import java.util.Objects;
-
 /**
  * Создайте класс ru.job4j.pojo.Library и в нем метод main.
  * В методе main создайте 4 объекта Book. Добавьте их в массив.
