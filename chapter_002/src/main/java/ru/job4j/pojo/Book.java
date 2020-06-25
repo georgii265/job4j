@@ -1,13 +1,16 @@
 package ru.job4j.pojo;
 
-
 /**
  * Создайте модель данных книга с полями: имя и количество страниц. ru.job4j.pojo.Book.
  */
 public class Book {
+
     private String name;
     private int count;
 
+    public static boolean equals(Book headFirstJava, Book html, Book css, Book cleanCode) {
+        return false;
+    }
 
     public Book(String name, int count) {
         this.name = name;
