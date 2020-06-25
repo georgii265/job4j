@@ -57,7 +57,7 @@ public class Library {
         System.out.println("Добавил цикл с выводом книги с именем : ");
         for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
-            if (bk.getCount() == 264) {
+            if (bk.getName().equals("Clean code")) {
                 System.out.println(bk.getName() + " - " + "page: " + bk.getCount());
             }
         }
