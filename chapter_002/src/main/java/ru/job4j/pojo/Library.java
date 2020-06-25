@@ -16,7 +16,10 @@ public class Library {
         /**
          * Для сравнения ссылочных типов данных на равенство необходимо использовать метод equals.
          */
-        System.out.println(Book.equals(headFirstJava, html, css, cleanCode));
+        headFirstJava.equals(html);
+        css.equals(cleanCode);
+        headFirstJava.equals(cleanCode);
+        html.equals(css);
 
         Book[] books = new Book[4];
 
@@ -51,12 +54,11 @@ public class Library {
         /**
          * Добавьте цикл с выводом книги с именем "Clean code".
          */
-        System.out.println("Добавил цикл с выводом книги с именем : " + System.lineSeparator()
-               + "Clean code" + " - " + "page: 264");
-        for (int index = 4; index < books.length; index++) {
+        System.out.println("Добавил цикл с выводом книги с именем : ");
+        for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
-            if (bk.getCount() > 4) {
-                System.out.println(bk.getName() + " - " + bk.getCount());
+            if (bk.getCount() == 264) {
+                System.out.println(bk.getName() + " - " + "page: " + bk.getCount());
             }
         }
     }
