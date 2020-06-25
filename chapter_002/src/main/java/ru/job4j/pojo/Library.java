@@ -13,14 +13,6 @@ public class Library {
         Book css = new Book("CSS", 320);
         Book cleanCode = new Book("Clean code", 264);
 
-        /**
-         * Для сравнения ссылочных типов данных на равенство необходимо использовать метод equals.
-         */
-        headFirstJava.equals(html);
-        css.equals(cleanCode);
-        headFirstJava.equals(cleanCode);
-        html.equals(css);
-
         Book[] books = new Book[4];
 
         books[0] = headFirstJava;
@@ -53,6 +45,7 @@ public class Library {
 
         /**
          * Добавьте цикл с выводом книги с именем "Clean code".
+         * Для сравнения ссылочных типов данных на равенство необходимо использовать метод equals.
          */
         System.out.println("Добавил цикл с выводом книги с именем : ");
         for (int index = 0; index < books.length; index++) {
