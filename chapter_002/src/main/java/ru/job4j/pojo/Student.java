@@ -8,6 +8,7 @@ import java.util.Date;
  * Сгенерируйте аксессоры для этих полей.
  */
 public class Student {
+
     private String fullName;
     private String group;
     private String receiptDate;

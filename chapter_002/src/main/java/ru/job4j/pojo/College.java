@@ -1,7 +1,6 @@
 package ru.job4j.pojo;
 
 import java.util.Date;
-
 /**
  * Создайте класс ru.job4j.pojo.College с методом main.
  * В методе main создайте объект Student и заполните поля через set.
@@ -9,15 +8,16 @@ import java.util.Date;
  * System.lineSeparator()- такой формат я сделал,так как интересней читается(для себя).))))
  */
 public class College {
+
     public static void main(String[] args) {
         Student student = new Student();
-        student.setFullName("Morgunov Georgii");
+        student.setFullName("Morgunov George");
         student.setGroup("job4j");
         student.setReceiptDate("April.");
         student.setCreated(new Date());
 
-        System.out.println(student.getFullName() + System.lineSeparator() + "student from - " + " group "
-                + student.getGroup() + " entered " + student.getReceiptDate());
+        System.out.println(student.getFullName() + System.lineSeparator() + "student from - "
+               + " group " + student.getGroup() + " entered " + student.getReceiptDate());
     }
 }
 
