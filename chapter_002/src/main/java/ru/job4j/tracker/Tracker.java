@@ -27,29 +27,34 @@ public class Tracker {
      * необходимо провести его инициализацию. Инициализацию можно проводить как поэлементно так и с помощью цикла,
      * например:for(int index = 0;index < position; index++){ items[index] = position }
      */
-     private int position = 0;
-     /**
+    private int position = 0;
+
+    /**
      * Метод добавления заявки в хранилище
+     *
      * @param item новая заявка
-     * Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
-     * В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
-     * Уникальный ключ нужно генерировать на основании времени и произвольного числа - item.setId(this.generateId());
-     * В качестве ключа нельзя использовать индекс от массива.
+     *             Метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок this.items;
+     *             В методе add нужно проставить уникальный ключ в объект Item item. Это нужно сделать через метод setId.
+     *             Уникальный ключ нужно генерировать на основании времени и произвольного числа - item.setId(this.generateId());
+     *             В качестве ключа нельзя использовать индекс от массива.
      */
     public Item add(Item item) {
         item.setId(this.generateId());
         items[this.position++] = item;
         return item;
     }
+
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     *
      * @return Уникальный ключ.
      */
     private String generateId() {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
+
     /**
      * Метод на получение списка всех заявок - public Item[] findAll();
      * Метод public Item[] findAll() возвращает копию массива this.items без null элементов (без пустых клеток).
@@ -60,6 +65,7 @@ public class Tracker {
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
     }
+
     /**
      * Метод на получение списка по имени - public Item[] findByName(String key)
      * Метод public Item[] findByName(String key) проверяет в цикле все элементы массива this.items,
@@ -82,6 +88,7 @@ public class Tracker {
         }
         return Arrays.copyOf(result, count);
     }
+
     /**
      * Метод на получение заявки по id - public Item findById(String id)
      * Метод public Item findById(String id) проверяет в цикле все элементы массива this.items,
@@ -96,32 +103,33 @@ public class Tracker {
         }
         return null;
     }
+
     /**
      * 1. Найти индекс ячейки по id.
      * 2. Проставить id с item. При замене нужно сохранять старый id.
      * 3. Записать в ячейку с найденным индекс объект item. Это входящий параметр.
+     *
      * @return
      */
     public boolean replace(String id, Item item) {
-        boolean result = false;
         int index = indexOf(id);
-            if (index != -1) {
-                item.setId(id);
-                items[index] = item;
-                result = true;
-            }
-        return result;
+        item.setId(id);
+        if (index != -1) {
+            items[index] = item;
+            return true;
         }
-
-    public boolean delete(String id) {
-        int index = indexOf(id) + 1;
-        if (index != position) {
-             items[position] = null;
-         }
-          System.arraycopy(items, index + 1, items, index, items.length - index - 1);
-           position--;
         return false;
     }
+
+    public boolean delete(String id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, items.length - index - 1);
+            position--;
+        }
+        return true;
+    }
+
     /**
      * Метод возвращает index по id.
      * Метод indexOf объявлен как private, потому что он используется только внутри системы.

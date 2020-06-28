@@ -20,8 +20,6 @@ public class TrackerTest {
         assertThat(result.getName(), is(item.getName()));
     }
 
-
-
     /**
      * Test на метод  findAll - получение списка всех заявок.
      */
