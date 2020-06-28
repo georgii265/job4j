@@ -1,15 +1,37 @@
 package ru.job4j.pojo;
 
+import java.util.Objects;
+
 public class Product {
     private String name;
     private int count;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return count == product.count &&
+                Objects.equals(name, product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, count);
+    }
+
+    /**
+     * Сравниваем поля.
+     * Если поля равны, то два объекта равны тоже.
+     * Примитивный тип count сравнивается через ==.
+     * Для ссылочного типа String используется метод equals.
+     */
 
 
     public Product(String name, int count) {
         this.name = name;
         this.count = count;
     }
-
 
     public String getName() {
         return name;
