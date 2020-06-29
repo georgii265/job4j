@@ -126,8 +126,9 @@ public class Tracker {
         if (index != -1) {
             System.arraycopy(items, index + 1, items, index, items.length - index - 1);
             position--;
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
