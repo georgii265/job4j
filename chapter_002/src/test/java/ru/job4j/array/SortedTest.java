@@ -1,12 +1,14 @@
 package ru.job4j.array;
 
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class SortedTest {
+
     @Test
-    public void whenSorted() { //когда отсортировано
+    public void whenSorted() {
         assertThat(
                 Sorted.isSorted(
                         new int[] {1, 2, 3}
@@ -16,13 +18,12 @@ public class SortedTest {
     }
 
     @Test
-    public void whenNotSorted() { //когда  не отсортировано
+    public void whenNotSorted() {
         assertThat(
                 Sorted.isSorted(
                         new int[] {1, 3, 2}
                 ),
-                is(true)
+                is(false)
         );
     }
 }
-

@@ -6,15 +6,17 @@ package ru.job4j.array;
  * Сортировать массив не нужно!
  */
 public class Sorted {
-    private static int size;
 
     public static boolean isSorted(int[] array) {
-        for (int i = 0; i < size - 1; i++) {
-            if (array[i] > array[i + 1]) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] > array[i]) {
                 return false;
             }
         }
         return true;
     }
 }
+
+
+
 
