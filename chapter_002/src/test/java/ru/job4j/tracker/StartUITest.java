@@ -12,13 +12,13 @@ public class StartUITest {
 
     @Test
     public void whenAddItem() {
-        String[] answers = {"Fix PC"};//Массив строк в котором есть только один элемент "Fix pc"
+        String[] answers = {"Fix PC"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
         CreateAction createAction = new CreateAction(out);
         createAction.execute(input, tracker);
-        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         Item expected = new Item("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
     }
@@ -32,6 +32,10 @@ public class StartUITest {
      * 5. Вызываем тестируемый метод replaceItem. Это действие изменит состояние объекта tracker.
      * 6. Ищем по item.id замененный item в объекте tracker.
      * 7. Сравниваем имя найденной заявки с ожидаемой.
+     *  String[] answers = {
+     *                 item.getId(), // id сохраненной заявки в объект tracker.
+     *                 "replaced item"
+     *         };
      */
     @Test
     public void whenReplaceItem() {
@@ -40,7 +44,7 @@ public class StartUITest {
         ReplaceAction replaceAction = new ReplaceAction();
         tracker.add(item);
         String[] answers = {
-                item.getId(), // id сохраненной заявки в объект tracker.
+                item.getId(),
                 "replaced item"
         };
         replaceAction.execute(new StubInput(answers), tracker);
